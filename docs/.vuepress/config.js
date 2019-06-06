@@ -4,7 +4,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { 
-        text: 'dashboard',
+        text: '后台',
         items: [
           {
             text: 'server',
@@ -25,11 +25,11 @@ module.exports = {
         ] 
       },
       { 
-        text: 'Document',
+        text: '数据库表',
         link: '/peddle_self/production/document'
       },
       {
-        text: 'weekpaper',
+        text: '工作周报',
         link: '/weekpapers/index'
       },
     ],
