@@ -1,8 +1,6 @@
-# 添加数据文档
+# 数据库表结构说明
 
----
-
-## <span style="color: green;"><center>用户</center></span>
+## 用户
 
 ### 用户登录信息 表一：
 
@@ -22,7 +20,7 @@
 
 ---
 
-## <span style="color: green;"><center>文档</center></span>
+## 文档
 
 ### 文档分类 表一：
 
