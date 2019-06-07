@@ -12,7 +12,7 @@ CREATE TABLE USERS.USERINFO (
   u_id CHAR(255) primary key,
   phone_number TEXT,
   nickname TEXT,
-  email DATETIME
+  email TEXT
 );
 
 -- 创建日志文档表

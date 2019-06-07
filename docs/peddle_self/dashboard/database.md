@@ -6,6 +6,7 @@
   go get github.com/go-sql-driver/mysql
   ```
 2. 导入库
+    go get -u github.com/go-sql-driver/mysql
   ```js
   import "database/sql"
   import _ "github.com/go-sql-driver/mysql"
@@ -455,3 +456,8 @@ func insert() {
 ![img](./images/070012140173654.png)
 
 [引用链接](https://www.cnblogs.com/shiluoliming/p/7904547.html)
+
+
+### 数据库数据为 null 的问题
+
+[数据库为 null 的问题](https://blog.csdn.net/robertkun/article/details/79157599)
