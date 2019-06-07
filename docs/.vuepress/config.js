@@ -3,6 +3,10 @@ module.exports = {
   description: 'Just playing around',
   themeConfig: {
     nav: [
+      {
+        text: 'VueIssue',
+        link: '/vue/problem'
+      },
       { 
         text: '后台',
         items: [
