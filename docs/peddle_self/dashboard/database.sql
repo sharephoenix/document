@@ -4,9 +4,10 @@ CREATE DATABASE USERS;
 
 CREATE TABLE USERS.USER_LOGIN (
   u_id CHAR(255) primary key,
-  password TEXT,
-  create_time DATETIME
-);
+  password TEXT COMMENT '用户登录密码',
+  isDelete BIT DEFAULT 0 COMMENT '标记该用户是否删除 默认 0： 没有删除 1：删除',
+  create_time DATETIME,
+)COMMENT = '用户登录表信息';
 
 CREATE TABLE USERS.USERINFO (
   u_id CHAR(255) primary key,
