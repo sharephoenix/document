@@ -34,9 +34,20 @@ module.exports = {
       },
       {
         text: '工作周报',
-        link: '/weekpapers/index'
-      },
+        link: '/weekpapers/weekpaper'
+      }
     ],
-    sidebar: 'auto'
+    // sidebar: 'auto'
+    sidebar: {
+      '/vue/problem': [
+        'problem'
+      ],
+      '/peddle_self/production/document': [
+        'document'
+      ],
+      '/weekpapers/weekpaper': [
+        'weekpaper'
+      ]
+    }
   }
 }
