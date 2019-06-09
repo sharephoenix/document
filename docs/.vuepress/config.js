@@ -4,10 +4,6 @@ module.exports = {
   themeConfig: {
     date_format: 'yyyy-MM-dd',
     nav: [
-      {
-        text: 'VueIssue',
-        link: '/vue/problem'
-      },
       { 
         text: '后台',
         items: [
@@ -38,6 +34,19 @@ module.exports = {
         link: '/peddle_self/production/document'
       },
       {
+        text: 'issue',
+        items: [
+          {
+            text: 'vue',
+            link: '/issue/vue'
+          },
+          {
+            text: 'golang',
+            link: '/issue/golang'
+          }
+        ]
+      },
+      {
         text: '工作周报',
         link: '/weekpapers/weekpaper'
       }
@@ -59,7 +68,11 @@ module.exports = {
       '/peddle_self/dashboard/redis': [
         'redis',
         'mogodb'
-      ]
+      ],
+      '/issue/vue': [
+        'vue',
+        'golang'
+      ]    
     }
   }
 }
