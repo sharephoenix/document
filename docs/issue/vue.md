@@ -60,3 +60,15 @@ html body {
   }
 }
 ```
+
+## 默认图片
+
+```html
+<img src="" style="hspace: 80px; border: 1px solid red; height: 900px" @click="fff" :onerror="defaultImage" alt="The Pulpit Rock" width="304" height="228">
+
+data() {
+    return {
+      defaultImage: `this.src='${require('../assets/logo.png')}'`
+    }
+  }
+```
