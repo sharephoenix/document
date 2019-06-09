@@ -61,7 +61,7 @@ html body {
 }
 ```
 
-## 默认图片
+## 默认图片img
 
 ```html
 <img src="" style="hspace: 80px; border: 1px solid red; height: 900px" @click="fff" :onerror="defaultImage" alt="The Pulpit Rock" width="304" height="228">
