@@ -1,6 +1,6 @@
 # <center>哈哈！！！！ 可能是空页面</center>
 
-## [Reids 待学习](http://localhost:8080/peddle_self/dashboard/database.html)
+## [Reids 待学习](https://blog.csdn.net/wang258533488/article/details/78901124)
 
 1. [周报](./weekpapers/weekpaper.md).
 
