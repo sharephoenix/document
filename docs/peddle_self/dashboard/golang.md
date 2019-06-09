@@ -1,4 +1,4 @@
-# <center>后台 golang</center>
+# 后台 golang
 
 ## 技术解构
 
