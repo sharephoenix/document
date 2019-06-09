@@ -72,7 +72,11 @@ module.exports = {
       '/issue/vue': [
         'vue',
         'golang'
-      ]    
+      ],
+      '/issue/golang': [
+        'vue',
+        'golang'
+      ]     
     }
   }
 }
