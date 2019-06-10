@@ -123,8 +123,8 @@ watch: {
 }
 ```
 
-## 如何减少图标的网络请求，提高性能
+## iconfont 
 
-1. 使用 iconfont。
-2. iconfont 本质上是 svg 。
+1. 使用 iconfont 可以减少图标的网络请求，提高性能。
+2. iconfont 本质上是 svg, 无网路请求。
 3. 具体怎么使用请看官网 [iconfong官网](https://www.iconfont.cn/)
