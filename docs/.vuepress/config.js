@@ -37,6 +37,10 @@ module.exports = {
         text: '算法',
         link: '/arithmetic/home'
       },
+      { 
+        text: 'j2objc',
+        link: '/javaoc/javaoc'
+      },
       {
         text: 'issue',
         items: [
@@ -57,6 +61,9 @@ module.exports = {
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/javaoc/javaoc': [
+        'javaoc'
+      ],
       '/peddle_self/dashboard/database': [
         'database'
       ],

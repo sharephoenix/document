@@ -5,7 +5,8 @@
   1. 通过 ref 直接调用子模板的方法
   2. 子模板使用 @ 绑定父类事件， 字模板使用 this.$emit('actionname',{}) 调用父模板的方法
   3. 使用 emitBus
-   ```j
+
+   ```js
    emitBus = new Vue()
    this.emitBus.emit('actionname', {})
    this.emitBus.$on('actionname', () => {})
@@ -202,6 +203,7 @@ module.exports = {
 
 ```css
 .next {
+  display: block;
   word-wrap : break-word;
   overflow: hidden;
 }
