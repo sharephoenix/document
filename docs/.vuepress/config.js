@@ -33,6 +33,10 @@ module.exports = {
         text: '数据库表',
         link: '/peddle_self/production/document'
       },
+      { 
+        text: '算法',
+        link: '/arithmetic/home'
+      },
       {
         text: 'issue',
         items: [
@@ -79,7 +83,31 @@ module.exports = {
       '/issue/golang': [
         'vue',
         'golang'
-      ]     
+      ],
+      '/arithmetic/home': [
+        'home',
+        'js',
+        'java',
+        'swift'
+      ],
+      '/arithmetic/js': [
+        'home',
+        'js',
+        'java',
+        'swift'
+      ],
+      '/arithmetic/java': [
+        'home',
+        'js',
+        'java',
+        'swift'
+      ],
+      '/arithmetic/swift': [
+        'home',
+        'js',
+        'java',
+        'swift'
+      ]
     }
   }
 }
