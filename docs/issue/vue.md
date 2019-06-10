@@ -172,6 +172,7 @@ module.exports = {
   这个字段匹配字符串并替换
 
 ## vue 环境变量配置问题
+
 | 文件名 | NODE_ENV | 说明
 | --- | --- | ---
 | .env | development | 基本环境配置文件
@@ -195,4 +196,13 @@ module.exports = {
 .env VUE_APP_ISWEB = true
 .env.development // 没有配置 VUE_APP_ISWEB
 最终 VUE_APP_ISWEB 为 'true'
+```
+
+## span 文字换行
+
+```css
+.next {
+  word-wrap : break-word;
+  overflow: hidden;
+}
 ```
