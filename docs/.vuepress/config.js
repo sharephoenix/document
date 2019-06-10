@@ -1,6 +1,13 @@
+const basePath = 'post'
+
 module.exports = {
   title: 'Touch',
   description: 'Just playing around',
+  // dest: basePath,
+  base: `/blog/`,
+  serviceWorker: true,
+  evergreen: true,
+  ga: 'UA-112738831-1',
   themeConfig: {
     date_format: 'yyyy-MM-dd',
     nav: [
