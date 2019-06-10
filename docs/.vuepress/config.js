@@ -53,6 +53,9 @@ module.exports = {
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/peddle_self/dashboard/database': [
+        'database'
+      ],
       '/vue/problem': [
         'problem'
       ],

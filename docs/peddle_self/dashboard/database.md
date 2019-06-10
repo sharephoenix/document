@@ -1,4 +1,4 @@
-# <center> MySql 数据库 </center>
+# MySql 数据库
 
 ## golang 使用 三方库调用 mysql 数据库
 1. 引入三方库
@@ -66,15 +66,15 @@
       log.Fatal(err)
     }
    ```
-### problem
-#### unknown driver "mysql" (forgotten import?)
+## problem
+### unknown driver "mysql" (forgotten import?)
 1. 头部引用 
   ```sql
   _ "github.com/go-sql-driver/mysql"
   ```
 
-### 各种方式效率分析
-#### db.exec和statement.exec和tx.exec的区别？
+## 各种方式效率分析
+### db.exec和statement.exec和tx.exec的区别？
 
 ```js
 package main
@@ -452,12 +452,12 @@ func insert() {
          css []connStmt
         }
     
-
+## golang 数据库模型图
 ![img](./images/070012140173654.png)
 
 [引用链接](https://www.cnblogs.com/shiluoliming/p/7904547.html)
 
 
-### 数据库数据为 null 的问题
+## 数据库数据为 null 的问题
 
 [数据库为 null 的问题](https://blog.csdn.net/robertkun/article/details/79157599)
