@@ -128,3 +128,71 @@ watch: {
 1. 使用 iconfont 可以减少图标的网络请求，提高性能。
 2. iconfont 本质上是 svg, 无网路请求。
 3. 具体怎么使用请看官网 [iconfong官网](https://www.iconfont.cn/)
+
+## 文字输入过多,后面 "..."
+
+```css
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+```
+
+## 本地调试跨域问题
+
+1. vue.config.js 配置 devServer
+
+```js
+module.exports = {
+  publicPath,
+  productionSourceMap: false,
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@/styles/variables.scss"; $userSelect: ${process.env.VUE_APP_USER_SELECT || 'none'};`
+      }
+    }
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: process.env.VUE_APP_API_DOMAIN,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
+      }
+    }
+  }
+}
+```
+
+2. pathRewrite
+  这个字段匹配字符串并替换
+
+## vue 环境变量配置问题
+| 文件名 | NODE_ENV | 说明
+| --- | --- | ---
+| .env | development | 基本环境配置文件
+| .env.development | development | 开发环境配置文件
+| .env.staging | 哈哈哈，其实可以自定义 | 预生产环境配置文件
+| .env.production | production | 生产基本环境配置文件
+
+最终的环境变量取 当前环境变量 和 .env 环境变量的集合，且当前环境变量有限极高
+
+如 1:
+
+```js
+.env VUE_APP_ISWEB = true
+.env.development VUE_APP_ISWEB = false
+最终 VUE_APP_ISWEB 为 'false'
+```
+
+如 2：
+
+```js
+.env VUE_APP_ISWEB = true
+.env.development // 没有配置 VUE_APP_ISWEB
+最终 VUE_APP_ISWEB 为 'true'
+```
