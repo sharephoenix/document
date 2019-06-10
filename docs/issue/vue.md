@@ -72,3 +72,30 @@ data() {
     }
   }
 ```
+
+## 限制 input textarea 的输入字数，包括黏贴的 bug
+### 由于 textarea 比较特殊，所以用 textarea 举例
+
+1. maxlength 限制输入字数 最大字数 500
+   
+```html
+  <textarea @click.stop class="suggestion-contain" maxlength="500" v-model="reason" placeholder="请输入您的审批意见"></textarea>
+```
+
+2. watch 从新过滤字数, 由于 maxlength 统计 \t \n 的长度和 string.length 的长度规则不一样，所以要重新处理。```<input> ```标签没有这个问题
+
+```js
+watch: {
+    reason: {
+      handler (val) {
+        const maxLength = 500
+        if (val.length >= maxLength) {
+          const content = this.introduction.replace(/(\s*)/g, '')
+          const count = this.introduction.length - content.length
+          this.introduction = this.introduction.substring(0, maxLength - count)
+        }
+      },
+      immediate: true
+    }
+  }
+```
