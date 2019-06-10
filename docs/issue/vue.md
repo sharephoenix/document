@@ -73,7 +73,7 @@ data() {
   }
 ```
 
-## 限制 input textarea 的输入字数，包括黏贴的 bug
+## 限制 input textarea 的输入字数
 ### 由于 textarea 比较特殊，所以用 textarea 举例
 
 1. maxlength 限制输入字数 最大字数 500
@@ -82,7 +82,7 @@ data() {
   <textarea @click.stop class="suggestion-contain" maxlength="500" v-model="reason" placeholder="请输入您的审批意见"></textarea>
 ```
 
-2. watch 从新过滤字数, 由于 maxlength 统计 \t \n 的长度和 string.length 的长度规则不一样，所以要重新处理。```<input> ```标签没有这个问题
+2. watch 从新过滤字数, 避免黏贴过多文字产出的 bug, 由于 maxlength 统计 \t \n 的长度和 string.length 的长度规则不一样，所以要重新处理。```<input> ```标签没有这个问题。
 
 ```js
 watch: {
@@ -99,3 +99,32 @@ watch: {
     }
   }
 ```
+
+## 代码如何适配移动端
+
+```js
+  module.exports = {
+  plugins: {
+    autoprefixer: {},
+    'postcss-px-to-viewport': {
+      viewportWidth: '375', // 视窗的宽度，对应的是我们设计稿的宽度，一般是750
+      unitPrecision: 3, // 指定`px`转换为视窗单位值的小数位数（很多时候无法整除）
+      viewportUnit: 'vw', // 指定需要转换成的视窗单位，建议使用vw
+      // propList: ['*', '!background-image'],
+      selectorBlackList: [
+        // 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名
+        'ignore'
+      ],
+      minPixelValue: 1, // 小于或等于`1px`不转换为视窗单位
+      mediaQuery: false // 允许在媒体查询中转换`px`
+      // exclude: /(\/|\\)(node_modules)(\/|\\)/
+    }
+  }
+}
+```
+
+## 如何减少图标的网络请求，提高性能
+
+1. 使用 iconfont。
+2. iconfont 本质上是 svg 。
+3. 具体怎么使用请看官网 [iconfong官网](https://www.iconfont.cn/)
