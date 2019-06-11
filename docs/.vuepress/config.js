@@ -102,25 +102,36 @@ module.exports = {
         'home',
         'js',
         'java',
-        'swift'
+        'swift',
+        'golang'
       ],
       '/arithmetic/js': [
         'home',
         'js',
         'java',
-        'swift'
+        'swift',
+        'golang'
       ],
       '/arithmetic/java': [
         'home',
         'js',
         'java',
-        'swift'
+        'swift',
+        'golang'
       ],
       '/arithmetic/swift': [
         'home',
         'js',
         'java',
-        'swift'
+        'swift',
+        'golang'
+      ],
+      '/arithmetic/golang': [
+        'home',
+        'js',
+        'java',
+        'swift',
+        'golang'
       ]
     }
   }
