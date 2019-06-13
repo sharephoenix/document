@@ -202,9 +202,12 @@ module.exports = {
 ## span 文字换行
 
 ```css
-.next {
+
+span {
   display: block;
-  word-wrap : break-word;
-  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap !important;
 }
+
 ```
