@@ -62,12 +62,19 @@ module.exports = {
         ]
       },
       {
+        text: 'webpack',
+        link: '/webpack/learning'
+      },
+      {
         text: '工作周报',
         link: '/weekpapers/weekpaper'
       }
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/webpack/learning': [
+        'learning'
+      ],
       '/javaoc/javaoc': [
         'javaoc'
       ],
