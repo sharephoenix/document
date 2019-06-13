@@ -62,6 +62,10 @@ module.exports = {
         ]
       },
       {
+        text: 'golang',
+        link: '/golang/learning'
+      },
+      {
         text: 'webpack',
         link: '/webpack/learning'
       },
@@ -72,6 +76,9 @@ module.exports = {
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/golang/learning': [
+        'learning'
+      ],
       '/webpack/learning': [
         'learning'
       ],
