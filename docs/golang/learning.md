@@ -73,3 +73,28 @@ func (jst *JsonStruct) Load(filename string, v interface{}) {
 }
 
 ```
+
+## 数据库建表
+
+```sql
+CREATE DATABASE IF NOT EXISTS WeexDemo;
+
+CREATE TABLE IF NOT EXISTS WeexDemo.Modules(
+  module_id char(255) primary key,
+  module_name char(255),
+  module_display_name char(255),
+  module_index char(255)
+);
+
+CREATE TABLE IF NOT EXISTS WeexDemo.Events(
+  module_id char(255),
+  event_id char(255),
+  event_name char(255),
+  event_display_name char(255),
+  event_params_parse varchar(255),
+  event_params char(255),
+  is_enable boolean,
+  event_des char(255),
+  primary key (event_id,module_id)
+);
+```
