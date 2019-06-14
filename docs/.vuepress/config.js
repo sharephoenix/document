@@ -71,7 +71,7 @@ module.exports = {
       },
       {
         text: '工作周报',
-        link: '/weekpapers/weekpaper'
+        link: '/weekpapers/thisweek'
       }
     ],
     // sidebar: 'auto'
@@ -95,7 +95,12 @@ module.exports = {
         'document'
       ],
       '/weekpapers/weekpaper': [
-        'weekpaper'
+        'thisweek',
+        'weekpaper',
+      ],
+      '/weekpapers/thisweek': [
+        'thisweek',
+        'weekpaper',
       ],
       '/peddle_self/dashboard/golang': [
         'golang'

@@ -7,8 +7,7 @@
  注: github 账号登录
  ```
 
-1. [周报](./weekpapers/weekpaper.md).
-2. [发布到github](https://www.jianshu.com/p/6e8c608f24c8)
+1. [发布到github](https://www.jianshu.com/p/6e8c608f24c8)
 
 <div>
   <div style="width:30%; height:90px; background: #f2f2f2; border: 1px solid #f0f0f0; float: left; margin-right: 3px;
