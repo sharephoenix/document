@@ -91,10 +91,11 @@ CREATE TABLE IF NOT EXISTS WeexDemo.Events(
   event_id char(255),
   event_name char(255),
   event_display_name char(255),
-  event_params_parse varchar(255),
-  event_params char(255),
+  event_params_parse boolean,
+  event_params Text,
   is_enable boolean,
   event_des char(255),
   primary key (event_id,module_id)
 );
+
 ```
