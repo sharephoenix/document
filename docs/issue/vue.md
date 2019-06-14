@@ -211,3 +211,15 @@ span {
 }
 
 ```
+
+## textarea 点击 ios 键盘无法弹起
+
+* css 设置 user-select: none; 可能设置了全局;
+
+解决方案：
+
+```css
+textarea {
+  user-select: auto;
+}
+```
