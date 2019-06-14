@@ -3,7 +3,7 @@
 ## 关于 内存重排
 [内存重排链接](https://mp.weixin.qq.com/s/jbGBBvMFHUKWBMnC4p7Rww)
 
-## 读取本地json
+## 读取本地json, 并序列化
 
 ```golang
 package main
