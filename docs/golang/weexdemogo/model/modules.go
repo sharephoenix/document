@@ -78,3 +78,20 @@ func  InsertModule(module datastruct.Module) {
 		fmt.Println(error.Error())
 	}
 }
+
+func SelectAllData() ([]datastruct.Module, error) {
+ ms, err := SelectAllModule()
+ if err != nil {
+ 	return nil, err
+ }
+
+ for i:=0; i< len(ms); i++ {
+ 	moduleId := ms[i].ModuleId
+ 	events, error := SelectEvents(moduleId)
+ 	if error != nil {
+		return nil, error
+	}
+	ms[i].Events = events
+ }
+ return ms, nil
+}

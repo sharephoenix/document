@@ -8,7 +8,7 @@ import (
 	"fmt"
 )
 
-const TofilePath  = "./data"
+const TofilePath  = "../data"
 
 /*把多有的 Modelue 导出到 json*/
 func ConvertToFile() {
@@ -17,7 +17,7 @@ func ConvertToFile() {
 		a := datastruct.Response(200, "", a)
 		buff, _ := json.Marshal(&a)
 		json := string(buff)
-		jsonToFile("./tojson/modules.json", json)
+		jsonToFile("../tojson/modules.json", json)
 		fmt.Println()
 	} else {
 		fmt.Println(error.Error())
@@ -33,6 +33,20 @@ func ConvertEvent() {
 			convertEventsToFile(ev.ModuleId)
 		}
 	}
+}
+
+func ConverDemoJson() {
+	ms, err := model.SelectAllData()
+	if err != nil {
+		fmt.Println("ConverDemoJson_error")
+		return
+	}
+
+	a := datastruct.Response(200, "", ms)
+	buff, _ := json.Marshal(a)
+	json := string(buff)
+	jsonToFile("../tomysql/demomysql.json", json)
+
 }
 
 /**********************************************************************************/
