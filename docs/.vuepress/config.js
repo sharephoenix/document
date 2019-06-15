@@ -41,6 +41,10 @@ module.exports = {
         link: '/peddle_self/production/document'
       },
       { 
+        text: '服务器',
+        link: '/server/server'
+      },
+      { 
         text: '算法',
         link: '/arithmetic/home'
       },
@@ -76,6 +80,9 @@ module.exports = {
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/server/server': [
+        'server'
+      ],
       '/golang/learning': [
         'learning'
       ],
