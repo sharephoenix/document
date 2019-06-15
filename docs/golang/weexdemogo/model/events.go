@@ -36,7 +36,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 		"event_params," +
 		"is_enable," +
 		"event_des" +
-		" FROM WeexDemo.Events order by event_id;")
+		" FROM WeexDemo.Events where module_id='" + moduleId + "' order by event_id;")
 	if err != nil {
 		return nil, &datastruct.CError{"sql error"}
 	}

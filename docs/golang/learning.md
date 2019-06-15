@@ -3,6 +3,13 @@
 ## 关于 内存重排
 [内存重排链接](https://mp.weixin.qq.com/s/jbGBBvMFHUKWBMnC4p7Rww)
 
+## 工程结构
+1. model 表的查询，每张表都有一个文件
+2. tojson 读取数据库中的数据，转化为 json 数据
+3. tomysql 从 json 中读取数据，导数数据库
+4. data 从数据库中读取数据的结果
+5. logic 所有 api 的查询
+
 ## 读取本地json, 并序列化
 
 ```golang
