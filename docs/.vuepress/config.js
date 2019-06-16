@@ -62,6 +62,10 @@ module.exports = {
           {
             text: 'golang',
             link: '/issue/golang'
+          },
+          {
+            text: 'mysql',
+            link: '/issue/mysql'
           }
         ]
       },
@@ -73,10 +77,10 @@ module.exports = {
         text: 'webpack',
         link: '/webpack/learning'
       },
-      {
-        text: '工作周报',
-        link: '/weekpapers/thisweek'
-      }
+      // {
+      //   text: '工作周报',
+      //   link: '/weekpapers/thisweek'
+      // }
     ],
     // sidebar: 'auto'
     sidebar: {
@@ -123,11 +127,18 @@ module.exports = {
       ],
       '/issue/vue': [
         'vue',
-        'golang'
+        'golang',
+        'mysql'
       ],
       '/issue/golang': [
         'vue',
-        'golang'
+        'golang',
+        'mysql'
+      ],
+      '/issue/mysql': [
+        'vue',
+        'golang',
+        'mysql'
       ],
       '/arithmetic/home': [
         'home',

@@ -46,3 +46,7 @@
 | ---     | ---  | --- |    --- | ---
 | GET | '/demo/events/:moduleId' | --- | ---   | --- 
 
+
+## 服务器允许跨域访问
+
+[链接](https://gocn.vip/article/529)
