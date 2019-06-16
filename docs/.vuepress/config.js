@@ -84,7 +84,12 @@ module.exports = {
         'server'
       ],
       '/golang/learning': [
-        'learning'
+        'learning',
+        'weexdemogo/read'
+      ],
+      '/weexdemogo/read': [
+        'learning',
+        'weexdemogo/read'
       ],
       '/webpack/learning': [
         'learning'
