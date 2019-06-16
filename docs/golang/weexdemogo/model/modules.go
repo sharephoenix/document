@@ -9,10 +9,9 @@ import (
 func SelectAllModule() ([]datastruct.Module, error) {
 	datastruct.DB, _ = datastruct.GetDB()
 	defer datastruct.DB.Close()
-
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
-		fmt.Println("opon database fail")
+		fmt.Println("opon database fail"  + err.Error())
 		return nil, &datastruct.CError{"没有数据"}
 	} else {
 		fmt.Println("opon database success")
@@ -24,12 +23,14 @@ func SelectAllModule() ([]datastruct.Module, error) {
 	}
 
 	tx, err := datastruct.DB.Begin()
+
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil, &datastruct.CError{"db begin error"}
 	}
 
 	rows, err := tx.Query("select module_id, module_name, module_display_name, module_index FROM WeexDemo.Modules order by module_id;")
+
 	if err != nil {
 		return nil, &datastruct.CError{"sql error"}
 	}
@@ -41,7 +42,7 @@ func SelectAllModule() ([]datastruct.Module, error) {
 		rows.Scan(&point.ModuleId, &point.ModuleName, &point.ModuleDisplayName, &point.ModuleIndex)
 		points = append(points, point)
 	}
-
+	defer rows.Close()
 	return points, nil
 }
 
@@ -54,7 +55,7 @@ func  InsertModule(module datastruct.Module) {
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
-		fmt.Println("opon database fail")
+		fmt.Println("opon database fail" + err.Error())
 		return
 	} else {
 		fmt.Println("opon database success")
@@ -75,6 +76,7 @@ func  InsertModule(module datastruct.Module) {
 		"values(?,?,?,?)", module.ModuleId, module.ModuleName, module.ModuleDisplayName, module.ModuleIndex)
 	error := tx.Commit()
 	if error != nil {
+
 		fmt.Println(error.Error())
 	}
 }

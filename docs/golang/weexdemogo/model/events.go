@@ -12,7 +12,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
-		fmt.Println("opon database fail")
+		fmt.Println("opon database fail" + err.Error())
 		return nil, &datastruct.CError{"没有数据"}
 	} else {
 		fmt.Println("opon database success")
@@ -37,6 +37,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 		"is_enable," +
 		"event_des" +
 		" FROM WeexDemo.Events where module_id='" + moduleId + "' order by event_id;")
+	defer rows.Close()
 	if err != nil {
 		return nil, &datastruct.CError{"sql error"}
 	}
@@ -70,7 +71,7 @@ func InsertEvents(events []datastruct.Event) {
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
-		fmt.Println("opon database fail")
+		fmt.Println("opon database fail" + err.Error())
 		return
 	} else {
 		fmt.Println("opon database success")

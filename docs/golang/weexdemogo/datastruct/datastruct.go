@@ -18,9 +18,12 @@ const (
 //Db数据库连接池
 var DB *sql.DB
 
+func init() {
+	DB, _ = GetDB()
+}
+
 /*获取数据库*/
 func GetDB() (*sql.DB, error) {
-
 	//构建连接："用户名:密码@tcp(IP:端口)/数据库?charset=utf8"
 	path := strings.Join([]string{userNameT, ":", passwordT, "@tcp(",ipT, ":", portT, ")/", dbNameT, "?charset=utf8"}, "")
 	fmt.Println(path)
@@ -29,10 +32,12 @@ func GetDB() (*sql.DB, error) {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+
+	DB.SetMaxOpenConns(10)
 	//设置数据库最大连接数
-	DB.SetConnMaxLifetime(100)
+	DB.SetConnMaxLifetime(10)
 	//设置上数据库最大闲置连接数
-	DB.SetMaxIdleConns(100)
+	DB.SetMaxIdleConns(10)
 	return DB, err
 }
 
