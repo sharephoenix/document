@@ -6,6 +6,7 @@ import (
 	"weexdemogo/datastruct"
 	"fmt"
 	"net/http"
+	"github.com/gin-contrib/cors"
 )
 
 var SuccessCode = 200
@@ -17,6 +18,12 @@ func init() {
 
 func Start() {
 	router := gin.Default()
+
+	// 服务器支持跨域配置
+	 config := cors.DefaultConfig()
+	 config.AllowAllOrigins = true
+	 router.Use(cors.New(config))
+
 	if router == nil {
 		fmt.Println("gin 初始化失败")
 		return
@@ -24,6 +31,7 @@ func Start() {
 	// 查询所有数据
 	router.GET("/demo/all", func(c *gin.Context) {
 		model, err := model.SelectAllData()
+		fmt.Println("oooook")
 		if err != nil {
 			c.JSON(http.StatusOK, datastruct.Response(FailDefaultCode, err.Error(), model))
 			return
@@ -56,6 +64,6 @@ func Start() {
 	router.GET("", func(c *gin.Context) {
 		c.JSON(http.StatusOK, datastruct.Response(FailDefaultCode, "没有找到相关数据", nil))
 	})
-	router.Run(":8080")
+	router.Run(":80")
 }
 
