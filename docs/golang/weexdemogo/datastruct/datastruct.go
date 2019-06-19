@@ -19,6 +19,7 @@ const (
 var DB *sql.DB
 
 func init() {
+	fmt.Println("starttttt")
 	DB, _ = GetDB()
 }
 
@@ -29,11 +30,12 @@ func GetDB() (*sql.DB, error) {
 	fmt.Println(path)
 	//打开数据库,前者是驱动名，所以要导入： _ "github.com/go-sql-driver/mysql"
 	DB, err := sql.Open("mysql", path)
+
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	DB.SetMaxOpenConns(10)
+	DB.SetMaxOpenConns(5)
 	//设置数据库最大连接数
 	DB.SetConnMaxLifetime(10)
 	//设置上数据库最大闲置连接数

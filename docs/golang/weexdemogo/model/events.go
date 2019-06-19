@@ -7,8 +7,8 @@ import (
 
 /*从数据库中查询事件*/
 func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
-	datastruct.DB, _ = datastruct.GetDB()
-	defer datastruct.DB.Close()
+	//datastruct.DB, _ = datastruct.GetDB()
+	//defer datastruct.DB.Close()
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
@@ -24,6 +24,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 	}
 
 	tx, err := datastruct.DB.Begin()
+
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil, &datastruct.CError{"db begin error"}
@@ -37,10 +38,15 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 		"is_enable," +
 		"event_des" +
 		" FROM WeexDemo.Events where module_id='" + moduleId + "' order by event_id;")
-	defer rows.Close()
+
+	defer rows.Close();
+
 	if err != nil {
+		tx.Rollback()
 		return nil, &datastruct.CError{"sql error"}
 	}
+
+	defer tx.Commit()
 
 	points := make([]datastruct.Event,0,0)
 
@@ -55,6 +61,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 			&point.EventParams,
 			&point.IsEnable,
 			&point.EventDes)
+		fmt.Println("111111")
 		points = append(points, point)
 
 	}
@@ -66,8 +73,8 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 // 向数据库中插入 Event
 func InsertEvents(events []datastruct.Event) {
 
-	datastruct.DB, _ = datastruct.GetDB()
-	defer datastruct.DB.Close()
+	//datastruct.DB, _ = datastruct.GetDB()
+	//defer datastruct.DB.Close()
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
