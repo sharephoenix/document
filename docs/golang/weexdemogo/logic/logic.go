@@ -30,6 +30,7 @@ func Start() {
 	}
 	// 查询所有数据
 	router.GET("/demo/all", func(c *gin.Context) {
+		fmt.Println("oooook_start")
 		model, err := model.SelectAllData()
 		fmt.Println("oooook")
 		if err != nil {

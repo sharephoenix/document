@@ -20,3 +20,7 @@ max_connections=30
 wait_timeout=5
 
 ```
+
+## 事务行数据查询
+
+* 查询后记得 callback 或者 commit 否者连接不会断开

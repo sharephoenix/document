@@ -7,9 +7,10 @@ import (
 
 // 从数据库中查询 Modules 返回 json 数据
 func SelectAllModule() ([]datastruct.Module, error) {
-	datastruct.DB, _ = datastruct.GetDB()
-	defer datastruct.DB.Close()
+	//datastruct.DB, _ = datastruct.GetDB()
+	//defer datastruct.DB.Close()
 	//验证连接
+	fmt.Println("ping")
 	if err := datastruct.DB.Ping(); err != nil{
 		fmt.Println("opon database fail"  + err.Error())
 		return nil, &datastruct.CError{"没有数据"}
@@ -32,9 +33,10 @@ func SelectAllModule() ([]datastruct.Module, error) {
 	rows, err := tx.Query("select module_id, module_name, module_display_name, module_index FROM WeexDemo.Modules order by module_id;")
 
 	if err != nil {
+		tx.Rollback()
 		return nil, &datastruct.CError{"sql error"}
 	}
-
+	defer rows.Close()
 	points := make([]datastruct.Module,0,0)
 
 	for rows.Next() {
@@ -42,7 +44,7 @@ func SelectAllModule() ([]datastruct.Module, error) {
 		rows.Scan(&point.ModuleId, &point.ModuleName, &point.ModuleDisplayName, &point.ModuleIndex)
 		points = append(points, point)
 	}
-	defer rows.Close()
+	tx.Commit()
 	return points, nil
 }
 
@@ -50,8 +52,8 @@ func SelectAllModule() ([]datastruct.Module, error) {
 // 向数据库中插入 Module
 func  InsertModule(module datastruct.Module) {
 
-	datastruct.DB, _ = datastruct.GetDB()
-	defer datastruct.DB.Close()
+	//datastruct.DB, _ = datastruct.GetDB()
+	//defer datastruct.DB.Close()
 
 	//验证连接
 	if err := datastruct.DB.Ping(); err != nil{
@@ -68,9 +70,11 @@ func  InsertModule(module datastruct.Module) {
 	//Begin函数内部会去获取连接
 	tx, err := datastruct.DB.Begin()
 	if err != nil {
+		tx.Rollback()
 		fmt.Println(err.Error())
 		return
 	}
+	defer tx.Commit()
 	fmt.Println("start-insert")
 	tx.Exec("INSERT INTO WeexDemo.Modules(module_id, module_name, module_display_name,module_index) " +
 		"values(?,?,?,?)", module.ModuleId, module.ModuleName, module.ModuleDisplayName, module.ModuleIndex)
@@ -84,6 +88,7 @@ func  InsertModule(module datastruct.Module) {
 func SelectAllData() ([]datastruct.Module, error) {
  ms, err := SelectAllModule()
  if err != nil {
+	 defer fmt.Println("SelectAllData_error_end")
  	return nil, err
  }
 
@@ -95,5 +100,6 @@ func SelectAllData() ([]datastruct.Module, error) {
 	}
 	ms[i].Events = events
  }
+ defer fmt.Println("SelectAllData_end")
  return ms, nil
 }
