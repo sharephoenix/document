@@ -30,14 +30,15 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 		return nil, &datastruct.CError{"db begin error"}
 	}
 
-	rows, err := tx.Query("select module_id, event_id," +
-		"event_name," +
-		"event_display_name," +
-		"event_params_parse," +
-		"event_params," +
-		"is_enable," +
-		"event_des" +
-		" FROM WeexDemo.Events where module_id='" + moduleId + "' order by event_id;")
+	rows, err := tx.Query("select e.module_id, e.event_id," +
+		"e.event_name," +
+		"m.module_name," +
+		"e.event_display_name," +
+		"e.event_params_parse," +
+		"e.event_params," +
+		"e.is_enable," +
+		"e.event_des" +
+		" FROM WeexDemo.Events as e left join WeexDemo.Modules as m on  e.module_id=m.module_id where e.module_id='" + moduleId + "' order by e.event_id;")
 
 	defer rows.Close();
 
@@ -56,6 +57,7 @@ func SelectEvents(moduleId string) ([]datastruct.Event, datastruct.CsError) {
 			&point.ModuleId,
 			&point.EventId,
 			&point.EventName,
+			&point.ModuleName,
 			&point.EventDisplayName,
 			&point.EventParamsParse,
 			&point.EventParams,
