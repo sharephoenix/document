@@ -97,7 +97,7 @@ func InsertEvents(events []datastruct.Event) {
 	fmt.Println("start-insert")
 	for i := 0; i<len(events); i++ {
 		event := events[i]
-		tx.Exec("INSERT INTO WeexDemo.Events(" +
+		_, err = tx.Exec("INSERT INTO WeexDemo.Events(" +
 			"module_id," +
 			"event_id," +
 			"event_name," +
@@ -115,6 +115,9 @@ func InsertEvents(events []datastruct.Event) {
 			event.EventParams,
 			event.IsEnable,
 			event.EventDes)
+		if err != nil {
+			tx.Rollback()
+		}
 	}
 
 	error := tx.Commit()

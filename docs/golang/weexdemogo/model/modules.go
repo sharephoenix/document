@@ -70,9 +70,11 @@ func  InsertModule(module datastruct.Module) {
 	//Begin函数内部会去获取连接
 	tx, err := datastruct.DB.Begin()
 	if err != nil {
+		tx.Rollback()
 		fmt.Println(err.Error())
 		return
 	}
+	defer tx.Commit()
 	fmt.Println("start-insert")
 	tx.Exec("INSERT INTO WeexDemo.Modules(module_id, module_name, module_display_name,module_index) " +
 		"values(?,?,?,?)", module.ModuleId, module.ModuleName, module.ModuleDisplayName, module.ModuleIndex)
