@@ -3,12 +3,17 @@ package main
 import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"weexdemogo/logic"
 	_ "weexdemogo/datastruct"
+	"weexdemogo/tomysql"
 )
 
 func main() {
-	logic.Start()
+	//tojson.ConvertToFile()
+	//tojson.ConvertEvent()
+	// go logic.Start()
+	//ConvertEvent()
+	tomysql.AllJsonToMysql()
+
 	fmt.Println("above")
 }
 

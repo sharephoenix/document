@@ -26,10 +26,12 @@ func ConvertToFile() {
 
 /*将 module 中的事件，导出 json*/
 func ConvertEvent() {
+	fmt.Println("enter")
 	m, err := model.SelectAllModule()
 	if err == nil {
 		for i := 0; i<len(m); i++ {
 			ev := m[i]
+			fmt.Println(i)
 			convertEventsToFile(ev.ModuleId)
 		}
 	}

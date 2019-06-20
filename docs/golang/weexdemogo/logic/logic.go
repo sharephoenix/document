@@ -53,7 +53,10 @@ func Start() {
 	// 查询对应 moduleid 下的所有事件
 	router.GET("/demo/events/:moduleId", func(c *gin.Context) {
 		moduleId := c.Param("moduleId")
+		a, _ := c.GetQueryArray("a")
+		fmt.Println(a)
 		model, err := model.SelectEvents(moduleId)
+
 		if err != nil {
 			c.JSON(http.StatusOK, datastruct.Response(FailDefaultCode, err.Error(), model))
 			return

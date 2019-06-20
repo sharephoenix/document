@@ -1099,6 +1099,15 @@
 					"event_params": false,
 					"is_enable": true,
 					"event_des": "获取当前定位信息状态"
+				},{
+					"module_id": "module-h",
+					"event_id": "h-6",
+					"event_name": "getDistanceFromTwoPoint",
+					"event_display_name": "getDistanceFromTwoPoint",
+					"event_params_parse": true,
+					"event_params": "{\"latitude0\":32.178722, \"longitude0\":119.508619, \"latitude1\": 32.206340, \"longitude1\": 119.425600}",
+					"is_enable": true,
+					"event_des": "获取当前定位信息状态"
 				}]
 			}]
 }

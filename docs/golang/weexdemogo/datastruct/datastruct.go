@@ -49,6 +49,12 @@ type Result struct {
 	Data interface{} 	`json:"data"`
 }
 
+type ResultAll struct {
+	Code int		`json:"code"`
+	Msg string		`json:"msg"`
+	Data []Module 	`json:"data"`
+}
+
 type Module struct {
 	ModuleId	string		`json:"module_id"`
 	ModuleName	string		`json:"module_name"`
@@ -59,7 +65,7 @@ type Module struct {
 
 type Event struct {
 	ModuleId string `json:"module_id"`
-	ModuleName string `json:"module_name"`
+	ModuleName sql.NullString `json:"module_name"`
 	EventId string `json:"event_id"`
 	EventName string`json:"event_name"`
 	EventDisplayName string	`json:"event_display_name"`

@@ -17,14 +17,22 @@ func NewJsonModule() *JsonModule {
 
 // 把所有的数据导入 mysql 数据库
 func AllJsonToMysql() {
-	v := datastruct.Result{}
-	jsb := NewJsonModule()
-	jsb.Load("./tomysql/demo.json", &v)
 
-	data, ok := (v.Data).([]datastruct.Module)
-	if !ok {
-		return
-	}
+	v := datastruct.ResultAll{}
+
+
+	//v := datastruct.Result{}
+	jsb := NewJsonModule()
+	jsb.Load("../tomysql/demo.json", &v)
+
+	data := v.Data
+	//data, ok := (v.Data).([]datastruct.Module)
+	//if ok {
+	//	fmt.Println("errrrrror")
+	//	fmt.Println(len(data))
+	//	fmt.Println(v.Data)
+	//	return
+	//}
 	for i :=0; i<len(data); i++ {
 		fmt.Println("-----------------------")
 		module := data[i]

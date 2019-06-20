@@ -105,8 +105,8 @@ func InsertEvents(events []datastruct.Event) {
 			"event_name," +
 			"event_display_name," +
 			"event_params_parse," +
-			"event_params" +
-			",is_enable," +
+			"event_params," +
+			"is_enable," +
 			"event_des) " +
 			"values(?,?,?,?,?,?,?,?)",
 			event.ModuleId,
@@ -117,9 +117,6 @@ func InsertEvents(events []datastruct.Event) {
 			event.EventParams,
 			event.IsEnable,
 			event.EventDes)
-		if err != nil {
-			tx.Rollback()
-		}
 	}
 
 	error := tx.Commit()
