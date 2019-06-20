@@ -31,7 +31,7 @@ func ConvertEvent() {
 	if err == nil {
 		for i := 0; i<len(m); i++ {
 			ev := m[i]
-			fmt.Println(i)
+			fmt.Println(ev.ModuleName)
 			convertEventsToFile(ev.ModuleId)
 		}
 	}

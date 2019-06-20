@@ -1,1 +1,1 @@
-{"code":200,"msg":"","data":[{"module_id":"module-e","module_name":{"String":"XHBScan","Valid":true},"event_id":"e-1","event_name":"scanCodeInfo","event_display_name":"scanCodeInfo","event_params_parse":false,"event_params":"params_json","is_enable":true,"event_des":"接口说明"}]}
+{"code":200,"msg":"","data":[{"module_id":"module-e","module_name":"XHBScan","event_id":"e-1","event_name":"scanCodeInfo","event_display_name":"scanCodeInfo","event_params_parse":false,"event_params":"params_json","is_enable":true,"event_des":"接口说明"}]}

@@ -41,7 +41,10 @@ func SelectAllModule() ([]datastruct.Module, error) {
 
 	for rows.Next() {
 		point := datastruct.Module{}
+
+
 		rows.Scan(&point.ModuleId, &point.ModuleName, &point.ModuleDisplayName, &point.ModuleIndex)
+
 		points = append(points, point)
 	}
 	tx.Commit()

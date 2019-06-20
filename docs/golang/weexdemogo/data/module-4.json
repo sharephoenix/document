@@ -1,1 +1,1 @@
-{"code":200,"msg":"","data":[{"module_id":"module-4","module_name":{"String":"XHBVideoModule","Valid":true},"event_id":"4-1","event_name":"selectVideo","event_display_name":"selectVideo","event_params_parse":false,"event_params":"params_json","is_enable":true,"event_des":"接口说明"}]}
+{"code":200,"msg":"","data":[{"module_id":"module-4","module_name":"XHBVideoModule","event_id":"4-1","event_name":"selectVideo","event_display_name":"selectVideo","event_params_parse":false,"event_params":"params_json","is_enable":true,"event_des":"接口说明"}]}

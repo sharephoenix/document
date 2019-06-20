@@ -4,14 +4,14 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	_ "weexdemogo/datastruct"
-	"weexdemogo/logic"
+	"weexdemogo/tojson"
 )
 
 func main() {
 	//tojson.ConvertToFile()
-	//tojson.ConvertEvent()
-	logic.Start()
-	//ConvertEvent()
+	tojson.ConvertEvent()
+	//logic.Start()
+
 	//tomysql.AllJsonToMysql()
 
 	fmt.Println("above")

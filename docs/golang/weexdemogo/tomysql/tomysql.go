@@ -27,7 +27,7 @@ func AllJsonToMysql() {
 
 	data := v.Data
 	//data, ok := (v.Data).([]datastruct.Module)
-	//if ok {
+	//if !ok {
 	//	fmt.Println("errrrrror")
 	//	fmt.Println(len(data))
 	//	fmt.Println(v.Data)

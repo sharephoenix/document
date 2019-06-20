@@ -65,7 +65,7 @@ type Module struct {
 
 type Event struct {
 	ModuleId string `json:"module_id"`
-	ModuleName sql.NullString `json:"module_name"`
+	ModuleName string `json:"module_name"`
 	EventId string `json:"event_id"`
 	EventName string`json:"event_name"`
 	EventDisplayName string	`json:"event_display_name"`
