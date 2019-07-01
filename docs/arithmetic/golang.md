@@ -187,3 +187,120 @@ func main() {
 }
 
 ```
+
+## 双链表
+
+```go
+
+package main
+
+import (
+	"fmt"
+)
+
+type DNode struct {
+	data interface{}
+	prev *DNode
+	next *DNode
+}
+
+type DList struct {
+	size uint64
+	head *DNode
+	tail *DNode
+}
+
+func InitList() (list *DList) {
+	alist := DList{}
+	alist.size = 0
+	alist.head = nil
+	alist.tail = nil
+	return &alist
+}
+
+func (list *DList)GetSize() uint64 {
+	return list.size
+}
+
+func (list *DList)GetHead() *DNode {
+	return (*list).head
+}
+
+func (list *DList)GetTail() *DNode {
+	return (*list).tail
+}
+
+func (list *DList)Append(node interface{}) {
+	newNode := &DNode{node, nil, nil}
+
+	if (*list).GetSize() == 0 {
+		(*list).head = newNode
+		(*list).tail = newNode
+	} else {
+		newNode.prev = list.tail
+		newNode.next = nil
+		(*list).tail.next = newNode
+		(*list).tail = newNode
+	}
+	(*list).size++
+}
+
+func (list *DList)SearchIndex(index uint64) *DNode {
+
+	if index < list.GetSize(){
+		node := (*list).GetHead()
+		var i uint64
+		i = 1
+		for ; i < index; i++ {
+			node = node.next
+		}
+		return node
+	}
+	return nil
+}
+
+func (list *DList)Delete(node *DNode) {
+	currentNode := (*list).head
+
+	for i := uint64(0); i < (*list).GetSize(); i++ {
+		if currentNode == node {
+			prev := currentNode.prev
+			next := currentNode.next
+
+			prev.next = next
+			next.prev = prev
+			fmt.Println("delete")
+			(*list).size--
+			break
+		}
+		currentNode = currentNode.next
+	}
+}
+
+func (list *DList)PrintAll() {
+	var i uint64
+	i = 0
+	currentNode := list.head
+	for ; i < list.GetSize(); i ++ {
+		fmt.Println(currentNode.data)
+		currentNode = currentNode.next
+	}
+}
+
+
+func main() {
+	a := InitList()
+
+	for i := 0; i < 100; i++ {
+		a.Append(i)
+	}
+	node := a.SearchIndex(9)
+	a.Delete(node)
+	fmt.Println(a.GetSize())
+
+}
+
+```
+
+## 并发
+[并发,线程锁](https://www.jianshu.com/p/dc94f2099277)
