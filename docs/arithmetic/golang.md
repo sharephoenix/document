@@ -189,7 +189,7 @@ func main() {
 ```
 
 ## 双链表
-
+[双链表 list](https://my.oschina.net/90design/blog/1813377)
 ```go
 
 package main
@@ -300,6 +300,24 @@ func main() {
 
 }
 
+```
+
+## golang List
+
+```golang
+func ListOperation() {
+	link := list2.New()
+	link.PushBack(1)
+	link.PushBack(0)
+	link.PushFront(2)
+	link.PushFront(3)
+	link.PushFront(30)
+	fmt.Println("root", link.Back().Value)
+	// 遍历链表
+	for p := link.Back(); p != link.Front(); p = p.Prev() {
+		fmt.Println("Number", p.Value)
+	}
+}
 ```
 
 ## 并发
