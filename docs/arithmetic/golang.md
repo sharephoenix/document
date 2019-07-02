@@ -667,5 +667,34 @@ func main() {
 
 ```
 
+## 素数计算
+
+```golang
+func isPrime(value int) bool {
+	if value <= 3 {
+		return value >= 2
+	}
+
+	if value%2 == 0 || value%3 == 0 {
+		return false
+	}
+
+	for i := 5; i * i < value; i+= 6 {
+		if value %i == 0 || value %(i+2) == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	for i := 0; i < 10000; i++ {
+		if isPrime(i) {
+			fmt.Println(i)
+		}
+	}
+}
+```
+
 ## golang 相关语法重点
 [语法重点](https://gobyexample.xgwang.me/?nsukey=VGF60Wh3svD3%2Bbwds9mcOvX%2B9%2BfqrHC1IiK4VOhVfvvyamIDfmPvhltjeW49MNgMHxPp8xoWDnsgdwK66g28QI7lRGrRzPk5tFwq972G9UB80K4HSKJXqfiaCn03Vd3lX8VBHPwqOzYaM8O%2FoGDZeUYhTm0J2DgkOTtPvqP9l3VSYMI%2F45sgrsKBrOcCTEJqxVIYFyu5KBtwTV1WtRbNZw%3D%3D)
