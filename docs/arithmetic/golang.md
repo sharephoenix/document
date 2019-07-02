@@ -320,5 +320,276 @@ func ListOperation() {
 }
 ```
 
+## panic recover
+
+```golang
+func main() {
+	defer func() {
+		fmt.Println("c")
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+
+		fmt.Println("d")
+	}()
+
+	fmt.Println("a")
+	panic("panic information")
+	fmt.Println("b")
+	fmt.Println("f")
+}
+```
+* result
+```js
+a
+c
+panic information
+d
+```
+
+
 ## 并发
 [并发,线程锁](https://www.jianshu.com/p/dc94f2099277)
+
+### 同步锁 sync.Mutex
+
+*  lock、unlock 不在同一个 routine 中，不能保证顺序的一致性。 sync.Mutex 不能对为加锁的 状态解锁，否则会出现异常不能保证正常工作
+
+```golang
+func main() {
+	var mu sync.Mutex
+
+	go func(){
+		fmt.Println("你好, 世界")
+		mu.Lock()
+	}()
+
+	mu.Unlock()
+}
+```
+
+### sync.WaitGroup
+
+```golang
+func main() {
+	var wg sync.WaitGroup
+
+	// 开N个后台打印线程
+	for i := 0; i < 10; i++ {
+		fmt.Println("----")
+		wg.Add(1)
+
+		go func() {
+			fmt.Println("你好, 世界" + string(1))
+			wg.Done()
+		}()
+	}
+
+	// 等待N个后台线程完成
+	fmt.Println("will end")
+	wg.Wait()
+	fmt.Println("end")
+}
+
+```
+
+* result
+
+```js
+----
+----
+----
+----
+----
+----
+----
+----
+----
+----
+will end
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+你好, 世界
+end
+```
+
+### 通道 chan
+
+```golang
+func main() {
+
+	// 使用 `make(chan val-type)` 创建一个新的通道。
+	// 通道类型就是他们需要传递值的类型。
+	messages := make(chan string)
+
+	// 使用 `channel <-` 语法 _发送(send)_ 一个新的值到通道中。这里
+	// 我们在一个新的 Go 协程中发送 `"ping"` 到上面创建的
+	// `messages` 通道中。
+	go func() { messages <- "ping" }()
+
+	// 使用 `<-channel` 语法从通道中 _接收(receives)_ 一个值。这里
+	// 将接收我们在上面发送的 `"ping"` 消息并打印出来。
+	msg := <-messages
+	fmt.Println(msg)
+}
+
+```
+
+## 上产消费模型
+
+```golang
+// 生产者: 生成 factor 整数倍的序列
+func Producer(factor int, out chan<- int) {
+	for i := 0; ; i++ {
+		out <- i*factor
+	}
+}
+
+// 消费者
+func Consumer(in <-chan int) {
+	for v := range in {
+		fmt.Println(v)
+	}
+}
+func main() {
+	ch := make(chan int, 64) // 成果队列
+
+	go Producer(3, ch) // 生成 3 的倍数的序列
+	go Producer(5, ch) // 生成 5 的倍数的序列
+	go Consumer(ch)    // 消费 生成的队列
+
+	// 运行一定时间后退出
+	time.Sleep(5 * time.Second)
+}
+
+```
+
+## 订阅者模式-模型
+
+```golang
+
+type (
+	subscriber chan interface{} 	// 订阅者为一个管道
+	topicFunc func(v interface{}) bool // 主题为一个过滤器, 过滤不同的 订阅者是否分发数据
+)
+
+type Publisher struct {
+	m sync.RWMutex		// 读写锁
+	buffer int			// 订阅队列的缓存大小
+	timeout time.Duration	// 发布超时时间
+	subscribers map[subscriber]topicFunc // 订阅者信息
+}
+
+// 创建发布者对象
+func NewPublisher(publishTimeOut time.Duration, buffer int) *Publisher {
+	return &Publisher{
+		buffer: buffer,
+		timeout: publishTimeOut,
+		subscribers: make(map[subscriber]topicFunc),
+	}
+}
+
+// 添加订阅者
+func (p *Publisher)SubscribeTopic(topic topicFunc) chan interface{} {
+	ch := make(chan interface{}, p.buffer)
+	p.m.Lock()
+	p.subscribers[ch] = topic
+	p.m.Unlock()
+	return ch
+}
+
+// 添加订阅者， 订阅全部主题
+func (p *Publisher)Subscribe() chan interface{} {
+	return p.SubscribeTopic(nil)
+}
+
+// 退出订阅
+func (p *Publisher)Evict(sub chan interface{}) {
+	p.m.Lock()
+	defer p.m.Unlock()
+	delete(p.subscribers, sub)
+	close(sub)
+}
+
+// 发送主题
+func (p *Publisher)sendTopic(sub subscriber, topic topicFunc, v interface{}, wg *sync.WaitGroup) {
+	defer  wg.Done()
+	
+	// 过滤 不同的通道信息
+	if topic != nil && topic(v) {
+		return
+	}
+
+	select {
+	 case sub <- v:
+	 	case <- time.After(p.timeout):
+	}
+}
+
+// 发布一个主题
+func (p *Publisher)Publish(v interface{}) {
+	p.m.Lock()
+	defer p.m.Unlock()
+
+	var wg sync.WaitGroup
+	for sub, topic := range  p.subscribers {
+		wg.Add(1)
+		go p.sendTopic(sub, topic, v, &wg)
+	}
+}
+
+// 关闭所有发布对象，同事关闭所有的订阅者管道
+
+func (p *Publisher) Close() {
+	p.m.Lock()
+	defer p.m.Unlock()
+
+	for sub := range p.subscribers {
+		delete(p.subscribers, sub)
+		close(sub)
+	}
+}
+
+
+func main() {
+	p := NewPublisher(100*time.Millisecond, 10)
+	defer p.Close()
+
+	all := p.Subscribe()
+	golang := p.SubscribeTopic(func(v interface{}) bool {
+		if s, ok := v.(string); ok {
+			return strings.Contains(s, "golang")
+		}
+		return false
+	})
+
+	p.Publish("hello,  world!")
+	p.Publish("hello, golang!")
+
+	go func() {
+		for  msg := range all {
+			fmt.Println("all:", msg)
+		}
+	} ()
+
+	go func() {
+		for  msg := range golang {
+			fmt.Println("golang:", msg)
+		}
+	} ()
+
+	// 运行一定时间后退出
+	time.Sleep(3 * time.Second)
+}
+
+```
+
+## golang 相关语法重点
+[语法重点](https://gobyexample.xgwang.me/?nsukey=VGF60Wh3svD3%2Bbwds9mcOvX%2B9%2BfqrHC1IiK4VOhVfvvyamIDfmPvhltjeW49MNgMHxPp8xoWDnsgdwK66g28QI7lRGrRzPk5tFwq972G9UB80K4HSKJXqfiaCn03Vd3lX8VBHPwqOzYaM8O%2FoGDZeUYhTm0J2DgkOTtPvqP9l3VSYMI%2F45sgrsKBrOcCTEJqxVIYFyu5KBtwTV1WtRbNZw%3D%3D)
