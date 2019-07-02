@@ -21,27 +21,27 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "bb046cd3b1eca8ef7aee057962e38bc4"
+    "revision": "6a72d9729cfc51c17de141cc017458ed"
   },
   {
     "url": "arithmetic/golang.html",
-    "revision": "7d3d274180b81fabf349907018aa1ec2"
+    "revision": "dd2c597e6a45f2620d816e541bf3a719"
   },
   {
     "url": "arithmetic/home.html",
-    "revision": "2a7e46f649db98fb6100e08a06b56028"
+    "revision": "b58bdce4c8099e44339d55bd6af18df9"
   },
   {
     "url": "arithmetic/java.html",
-    "revision": "a9071d7d8c2d57f36c906e682ae1ffcd"
+    "revision": "7409a0fb13e9515079d5621cb87f3882"
   },
   {
     "url": "arithmetic/js.html",
-    "revision": "86fc3877839f5a150eb7ccb923681ed0"
+    "revision": "eee5c1901ee173b304248ed84c153e81"
   },
   {
     "url": "arithmetic/swift.html",
-    "revision": "ee35882e785dd33375ac3084b7adecbe"
+    "revision": "59cd8f0055cc8e85e99854a3004c32d1"
   },
   {
     "url": "assets/css/0.styles.05c040d9.css",
@@ -144,8 +144,8 @@ self.__precacheManifest = [
     "revision": "15d9a426d0827d331e578b0f9550560c"
   },
   {
-    "url": "assets/js/5.295dad6d.js",
-    "revision": "2c0908f001de60c30b875f885a6d2de9"
+    "url": "assets/js/5.cea519b6.js",
+    "revision": "4a41b6804458471e206c8a167d806570"
   },
   {
     "url": "assets/js/6.e0c85bd7.js",
@@ -164,88 +164,88 @@ self.__precacheManifest = [
     "revision": "63def96ef1b52ed39a73a932e24b0121"
   },
   {
-    "url": "assets/js/app.9ccc462d.js",
-    "revision": "e74b8d526b05989764cd9bbffa441e37"
+    "url": "assets/js/app.6e6a5477.js",
+    "revision": "a0b6cbb05e2f16e627da78741aed91a3"
   },
   {
     "url": "golang/learning.html",
-    "revision": "290bd03e11ccf313d29e602acd66ca63"
+    "revision": "ec395ff729528950e9b82d77948b8719"
   },
   {
     "url": "golang/weexdemogo/read.html",
-    "revision": "668005986ca75fa1815c78e548dc53ea"
+    "revision": "a082be45f8a6c444ca6627bf950dd52f"
   },
   {
     "url": "index.html",
-    "revision": "2c3d06eeafea9ebed120866760903855"
+    "revision": "54fb708051482df0bb8cd7e1576db27d"
   },
   {
     "url": "issue/golang.html",
-    "revision": "d26e5b25431219f8dfb26bc2f05963d5"
+    "revision": "9f8f5aaba8347d191c4be535a3369b03"
   },
   {
     "url": "issue/mysql.html",
-    "revision": "5df762c10d4b97c1f61b30dd3fc35897"
+    "revision": "426e79cb888cfe9f33274a6b4fc2206c"
   },
   {
     "url": "issue/vue.html",
-    "revision": "f2b57d3ae35422700823c7c96dcd8828"
+    "revision": "1fbb2a778e5eaf605b5159709e058365"
   },
   {
     "url": "javaoc/javaoc.html",
-    "revision": "c3dadd58fea8486bc1476a5d0921c9b6"
+    "revision": "31db0f5176a0877b72cab14d32af59bd"
   },
   {
     "url": "peddle_self/dashboard/database.html",
-    "revision": "d5d4f66110141458b2199f611dc21a36"
+    "revision": "acf0a7169bbb3ff505e045ee37538844"
   },
   {
     "url": "peddle_self/dashboard/golang.html",
-    "revision": "e2d61bb8602b3651be4685df2b001b46"
+    "revision": "5969150126a2adb7ecda6296e6e95429"
   },
   {
     "url": "peddle_self/dashboard/mogodb.html",
-    "revision": "e377dc1d6647bbdf7b7d0aedd8e11528"
+    "revision": "222f57805015a720d9ce319333baf6c7"
   },
   {
     "url": "peddle_self/dashboard/redis.html",
-    "revision": "ab669eb280756a13e6393ec1b8a9106d"
+    "revision": "8c9d6543bff732dd4ea3ba9a51d00c76"
   },
   {
     "url": "peddle_self/dashboard/web.html",
-    "revision": "76b9408a51d9afa988b94ae2eb528878"
+    "revision": "c877958a4b7e5816acb60c2d476d52cc"
   },
   {
     "url": "peddle_self/production/document.html",
-    "revision": "c1b2e77368447d50515cb2e389e07f86"
+    "revision": "d1da7586ac88fbe551f74b7ad52f2308"
   },
   {
     "url": "server/server.html",
-    "revision": "3b2bbf5f310bc83dfd009f7551713646"
+    "revision": "aa1685e123279e2e55fac77870189e1f"
   },
   {
     "url": "webpack/learning.html",
-    "revision": "c19dff2cd7f37a65a6a144bd3516a681"
+    "revision": "28281e7b5fcee0f602716a683e65498b"
   },
   {
     "url": "weekpapers/2019.05.27-2019.05.31.html",
-    "revision": "f99d6c9305985719bd59d4fb28c77925"
+    "revision": "40124bf3ea3df64c023a3121b86ff8c5"
   },
   {
     "url": "weekpapers/2019.06.03-2019.06.07.html",
-    "revision": "c337c97978ca712b6e990aaf0082f590"
+    "revision": "84b9f492691fbe2f6d53abfad9e15369"
   },
   {
     "url": "weekpapers/thisweek.html",
-    "revision": "bcafdb60f9bac84401e93530bd6421d6"
+    "revision": "95c953cc6e5bbf1e8771818392f88c60"
   },
   {
     "url": "weekpapers/weekpaper.html",
-    "revision": "9bc4b6709a1581419e4a5b7ff316c4dd"
+    "revision": "80fc8389c420a6afffa76e2bdb5ba00f"
   },
   {
     "url": "xp-review/index.html",
-    "revision": "c00f93a31ead1adbb97c81778f005923"
+    "revision": "1cdad6872a9d101684395ad9bd272e37"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
