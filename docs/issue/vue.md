@@ -223,3 +223,29 @@ textarea {
   user-select: auto;
 }
 ```
+
+## div 不能滚动 移动端兼容
+
+* 案例一
+```css
+.test {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+```
+
+* 案例二： 某些机型不可以滚动
+```css
+.test {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+```
+
+* 解决方法
+```css
+.test {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+```

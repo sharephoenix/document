@@ -668,12 +668,6 @@ func main() {
 }
 ```
 
-## golang 相关语法重点
-[语法重点](https://gobyexample.xgwang.me/?nsukey=VGF60Wh3svD3%2Bbwds9mcOvX%2B9%2BfqrHC1IiK4VOhVfvvyamIDfmPvhltjeW49MNgMHxPp8xoWDnsgdwK66g28QI7lRGrRzPk5tFwq972G9UB80K4HSKJXqfiaCn03Vd3lX8VBHPwqOzYaM8O%2FoGDZeUYhTm0J2DgkOTtPvqP9l3VSYMI%2F45sgrsKBrOcCTEJqxVIYFyu5KBtwTV1WtRbNZw%3D%3D)
-
-## select epoll 的区别
-
-
 ## select 用法
 
 * 随机一个 channel 执行
@@ -702,3 +696,8 @@ func main() {
 	}
 }
 ```
+
+## golang 相关语法重点
+[语法重点](https://gobyexample.xgwang.me/?nsukey=VGF60Wh3svD3%2Bbwds9mcOvX%2B9%2BfqrHC1IiK4VOhVfvvyamIDfmPvhltjeW49MNgMHxPp8xoWDnsgdwK66g28QI7lRGrRzPk5tFwq972G9UB80K4HSKJXqfiaCn03Vd3lX8VBHPwqOzYaM8O%2FoGDZeUYhTm0J2DgkOTtPvqP9l3VSYMI%2F45sgrsKBrOcCTEJqxVIYFyu5KBtwTV1WtRbNZw%3D%3D)
+
+## select epoll 的区别
