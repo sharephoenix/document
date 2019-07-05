@@ -17,3 +17,7 @@ echo '# Hello VuePress!' > docs/README.md
 # 开始写作
 npx vuepress dev docs
 ```
+
+# 运维
+
+[devops](https://ones.ai/pipeline.html?utm_term=devops&utm_campaign=baiduSEM&utm_medium=CPC&utm_source=baiduSEM&utm_content=Pipeline-%E8%A1%8C%E4%B8%9A-DevOps_0601)
