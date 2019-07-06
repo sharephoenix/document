@@ -242,10 +242,32 @@ textarea {
 }
 ```
 
+* 案例二： flex 低版本可能不兼容，必须 指定高度 height:100%;
+```css
+.test {
+  flex: 1;
+}
+```
+
 * 解决方法
 ```css
 .test {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+```
+
+## canvas div -> image
+
+* npm install html2canvas --save
+  
+```js
+html2canvas(this.$refs.ff).then(canvas => {
+        canvas.style.height = '100px'
+        canvas.style.width = '100px'
+        let url = canvas.toDataURL()
+        console.log(url)
+        this.gg = url
+        document.body.appendChild(canvas)
+      });
 ```
