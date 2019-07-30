@@ -260,6 +260,7 @@ textarea {
 ## canvas div -> image
 
 * npm install html2canvas --save
+* 不要使用 backgroud-image
   
 ```js
 html2canvas(this.$refs.ff).then(canvas => {
@@ -270,4 +271,29 @@ html2canvas(this.$refs.ff).then(canvas => {
         this.gg = url
         document.body.appendChild(canvas)
       });
+```
+
+## 搜索键盘问题
+
+* 要加 form 标签才会有 "搜索文字属性"
+* @submit.prevent 阻止第一次搜索界面刷新问题
+
+```html
+<form action
+      @submit.prevent
+      class="xp-search-form">
+        <input id="search" type="search"
+        class="xp-search-input"
+          @keyup.enter="beginSearch"
+          v-model="innerSearchContent"
+          :placeholder="placeHolder"/>
+      </form>
+```
+
+## 组件偏移位置
+
+* getBoundingClientRect
+
+```js
+this.$refs[currentRef][0].getBoundingClientRect().y
 ```
