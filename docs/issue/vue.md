@@ -319,7 +319,8 @@ this.$refs[currentRef][0].getBoundingClientRect().y
 ## 某些 android v-for 不显示，手动触碰界面界面渲染
 
 * 解决方法一：
-添加: "<book-group-item v-show="false"></book-group-item>"
+
+添加一条不显示的模板: ```<book-group-item v-show="false"></book-group-item>```
 
   ```html
   <book-group-item v-show="false"></book-group-item>
@@ -334,10 +335,10 @@ this.$refs[currentRef][0].getBoundingClientRect().y
   ```
 
 * 解决方法二：
+  
   groups 数组给默认值，不能是空数组
 
   ```html
   groups:[] -- 错误示范
   groups:[{}] -- 正确示范
   ```
-  
