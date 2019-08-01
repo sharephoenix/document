@@ -297,3 +297,21 @@ html2canvas(this.$refs.ff).then(canvas => {
 ```js
 this.$refs[currentRef][0].getBoundingClientRect().y
 ```
+
+## 移动 input 搜索功能
+
+* form + type="search" - 改变键盘的搜索按钮
+* @submit.prevent - 阻止搜索点击后界面刷新问题
+* @keyup.enter="beginSearch" - 响应 ”搜索“ 点击事件
+
+```html
+<form action
+      @submit.prevent
+      class="xp-search-form">
+        <input id="xp-search" type="search"
+        class="xp-search-input"
+          @keyup.enter="beginSearch"
+          v-model="innerSearchContent"
+          :placeholder="placeHolder"/>
+      </form>
+```
