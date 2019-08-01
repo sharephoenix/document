@@ -315,3 +315,29 @@ this.$refs[currentRef][0].getBoundingClientRect().y
           :placeholder="placeHolder"/>
       </form>
 ```
+
+## 某些 android v-for 不显示，手动触碰界面界面渲染
+
+* 解决方法一：
+添加: "<book-group-item v-show="false"></book-group-item>"
+
+  ```html
+  <book-group-item v-show="false"></book-group-item>
+    <book-group-item v-for="(item, index) in groups"
+    :key="index"
+    :addressType="addressType"
+    :title="item.name"
+    :count="item.count"
+    :bgColor="bgColor()"
+    :groupItems="addressType === 2?[]:[item.headUrlList]"
+    @handlerDetail="handlerDetail(item.id, item.name)"/>
+  ```
+
+* 解决方法二：
+  groups 数组给默认值，不能是空数组
+
+  ```html
+  groups:[] -- 错误示范
+  groups:[{}] -- 正确示范
+  ```
+  
