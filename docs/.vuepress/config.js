@@ -36,6 +36,28 @@ module.exports = {
           }
         ] 
       },
+      {
+        text: 'mogodb',
+        items: [
+          {
+            text: 'MongoDB',
+            link: '/cache/mongodb/mongodb'
+          }
+        ]
+      },
+      {
+        text: 'redis',
+        items: [
+          {
+            text: 'LevelDB',
+            link: '/cache/redis/leveldb'
+          },
+          {
+            text: 'RocksDB',
+            link: '/cache/redis/rocksdb'
+          }
+        ]
+      },
       { 
         text: '数据库表',
         link: '/peddle_self/production/document'
