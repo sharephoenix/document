@@ -4,8 +4,8 @@
 
 ## k8s
 
-* k8s是一个docker容器管理工具
-[k8s](jianshu.com/p/4869375928d6)
+* k8s是一个 docker 部署管理工具
+[k8s](http://jianshu.com/p/4869375928d6)
 
 ## jenkins
 

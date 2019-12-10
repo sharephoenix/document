@@ -49,6 +49,10 @@ module.exports = {
         text: 'redis',
         items: [
           {
+            text: 'Redis',
+            link: '/cache/redis/redis'
+          },
+          {
             text: 'LevelDB',
             link: '/cache/redis/leveldb'
           },
@@ -65,6 +69,10 @@ module.exports = {
       { 
         text: '服务器',
         link: '/server/server'
+      },
+      {
+        text: 'vue入门',
+        link: '/vue/primary/primary'
       },
       { 
         text: '算法',
@@ -106,6 +114,14 @@ module.exports = {
     ],
     // sidebar: 'auto'
     sidebar: {
+      '/cache/redis/redis': [
+        'redis',
+        'rocksdb',
+        'leveldb'
+      ],
+      '/vue/primary/primary': [
+        'primary'
+      ],
       '/server/server': [
         'server'
       ],
