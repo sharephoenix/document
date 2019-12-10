@@ -11,6 +11,13 @@
 
 * 构建版本工具
 * 私有化部署
+* docker-jenkins
+
+['链接'](https://jenkins.io/zh/doc/tutorials/build-a-node-js-and-react-app-with-npm/)
+
+```docker
+docker run --rm -u root -p 8080:8080 -v /Users/apple/jenkins/jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v /Users/apple/jenkins/home:/home jenkinsci/blueocean
+```
 
 ## nginx, redis, kafka, elk, tomcat, fastdfs, mongodb
 
