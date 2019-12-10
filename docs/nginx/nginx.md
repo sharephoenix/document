@@ -1,0 +1,33 @@
+# ngix 学习配置
+
+## nginx 配置多个 网站
+
+```nginx
+server {
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    location /a {
+        alias   /usr/share/nginx/html/a;
+        index  index.html index.htm;
+    }
+
+    location /b {
+        alias   /usr/share/nginx/html/b;
+        index  index.html index.htm;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
