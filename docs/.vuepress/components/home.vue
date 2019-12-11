@@ -1,7 +1,7 @@
 <template>
 <div class="home-container">
   <div class="header-cls">
-    <img style="width: auto; height: 360px;" src="../../assets/a.png" alt="">
+    <img style="width: auto; height: 360px;" src="../../assets/a.gif" alt="">
   </div>
 <div class="sub-link">
   <a href="https://blog.csdn.net/wang258533488/article/details/78901124">Reids 待学习</a>
@@ -25,7 +25,7 @@ export default {
 html,body,div {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
 .header-cls {
@@ -36,11 +36,7 @@ html,body,div {
 }
 
 .home-container {
-  position: absolute;
-  left: 0;
-  top: 60px;
   width: 100%;
-  height: calc(100% - 60px);
 }
 
 .sub-link {
@@ -48,7 +44,33 @@ html,body,div {
   justify-content: center;
   padding-top: 20px;
   a {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 }
+
+.no-sidebar {
+  .page {
+    position: relative;
+    display: block;
+
+    .page-edit {
+      position: relative;
+    }
+
+    .content {
+      margin: 0;
+      max-width: 100% !important;
+      padding: 0px !important;
+      p {
+        padding: 0px;
+      }
+    }
+
+    .sidebar {
+      width: 319px;
+    }
+  } 
+}
+
+
 </style>

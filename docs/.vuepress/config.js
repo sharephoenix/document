@@ -112,7 +112,7 @@ module.exports = {
         link: '/weekpapers/thisweek'
       }
     ],
-    // sidebar: 'auto'
+    sidebar: 'none',
     sidebar: {
       '/cache/redis/redis': [
         'redis',
