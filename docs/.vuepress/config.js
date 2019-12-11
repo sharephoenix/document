@@ -106,10 +106,6 @@ module.exports = {
       {
         text: 'webpack',
         link: '/webpack/learning'
-      },
-      {
-        text: '工作周报',
-        link: '/weekpapers/thisweek'
       }
     ],
     sidebar: 'none',
