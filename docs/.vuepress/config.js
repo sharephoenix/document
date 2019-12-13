@@ -67,6 +67,10 @@ module.exports = {
         link: '/peddle_self/production/document'
       },
       { 
+        text: 'weex',
+        link: '/weex/weex'
+      },
+      { 
         text: '服务器',
         link: '/server/server'
       },
