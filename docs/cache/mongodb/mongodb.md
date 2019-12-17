@@ -202,3 +202,51 @@ db.col.find().pretty()
 ```
 
 ## 查询文档
+
+* query ：可选，使用查询操作符指定查询条件
+* projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）。
+
+```mongo
+db.collection.find(query, projection)
+```
+
+### where
+
+```mongo
+db.col.find({key1:value1, key2:value2}).pretty()
+```
+
+操作 | 格式 | 范例 | RDBMS中的类似语句
+--- | --- | --- | ---
+等于 | {key:value} | db.col.find({"by":"菜鸟教程"}).pretty() | where by = '菜鸟教程'
+小于 | {key:{$lt:value}} | db.col.find({"likes":{$lt:50}}).pretty() | where likes < 50
+小于或等于 | {key:{$lte:value}} | db.col.find({"likes":{$lte:50}}).pretty() | where likes <= 50
+大于 | {key:{$gt:value}} | db.col.find({"likes":{$gt:50}}).pretty() | where likes > 50
+大于或等于 | {key:{$gte:value}} | db.col.find({"likes":{$gte:50}}).pretty() | where likes >= 50
+不等于 | {key:{$ne:value}} | db.col.find({"likes":{$ne:50}}).pretty() | where likes != 50
+
+### where and
+
+```mongo
+db.col.find({key1:value1, key2:value2}).pretty()
+db.col.find({"by":"菜鸟教程", "title":"MongoDB 教程"}).pretty()
+```
+
+### where or
+
+```mongo
+db.col.find(
+   {
+      $or: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+db.col.find({$or:[{"by":"菜鸟教程"},{"title": "MongoDB 教程"}]}).pretty()
+```
+
+### where or and and
+
+```mongo
+db.col.find({"likes": {$gt:50}, $or: [{"by": "菜鸟教程"},{"title": "MongoDB 教程"}]}).pretty()
+```

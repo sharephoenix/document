@@ -106,3 +106,15 @@ CREATE TABLE IF NOT EXISTS WeexDemo.Events(
 );
 
 ```
+
+## golang 代码规范
+
+```golang
+go fmt ./...
+```
+
+## golang 错误检测
+
+```golang
+go test -race ./...
+```

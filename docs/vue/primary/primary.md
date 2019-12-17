@@ -126,7 +126,7 @@ watch: 监听属性变化；immedate=true 表明立即变化；deep=true 表明 
 
 ## router-view
 
- * 用于界面路由跳转
+* 用于界面路由跳转
 
  main.js 代码引入 router
 
@@ -177,14 +177,16 @@ export default new Router({
 </template>
  ```
 
- * 路由跳转方法
+* 路由跳转方法
 
  ```js
  this.$router.push('/a/b/punchardId')
  ```
 
- * 获取 punchardId 值
+* 获取 punchardId 值
 
  ```js
  this.$route.params.punchardId
  ```
+
+* 其它传值方式自己写代码的时候学习吧
