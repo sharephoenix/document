@@ -27,6 +27,9 @@ export default {
   name: 'Home',
   data () {
     return {}
+  },
+  mounted () {
+    window.console.log('route::', this.$route)
   }
 }
 </script>
