@@ -71,6 +71,10 @@ module.exports = {
         link: '/weex/weex'
       },
       { 
+        text: '集群',
+        link: '/cluster/cluster'
+      },
+      { 
         text: '服务器',
         link: '/server/server'
       },
@@ -118,6 +122,9 @@ module.exports = {
         'redis',
         'rocksdb',
         'leveldb'
+      ],
+      '/cluster/cluster': [
+        'cluster'
       ],
       '/vue/primary/primary': [
         'primary'
