@@ -1,5 +1,9 @@
 # vue 初级入门
 
+* demo 在以下链接 dev 分支 的 phoenix-vue 项目中
+
+[demo:phoenix-vue:dev](https://github.com/sharephoenix/project_vue)
+
 ## 入门必备知识点
 
 * 简单的 js 语法
