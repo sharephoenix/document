@@ -1,2 +1,3 @@
 
 <home></home>
+<wiki></wiki>

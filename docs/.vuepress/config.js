@@ -118,6 +118,22 @@ module.exports = {
     ],
     sidebar: 'none',
     sidebar: {
+      '/wiki/userwiki': [
+        'userwiki',
+        'encryption'
+      ],
+      '/wiki/encryption': [
+        'userwiki',
+        'encryption'
+      ],
+      '/cache/mongodb/mongodb': [
+        'mongodb',
+        'intermediate'
+      ],
+      '/cache/mongodb/intermediate': [
+        'mongodb',
+        'intermediate'
+      ],
       '/cache/redis/redis': [
         'redis',
         'rocksdb',

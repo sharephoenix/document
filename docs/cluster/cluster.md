@@ -1,6 +1,6 @@
 # 什么是集群,分布式,微服务?
 
-![图片](https://upload-images.jianshu.io/upload_images/4994935-96238e5d3574de2b.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/571/format/webp)
+<imageX></imageX>
 
 什么是集群
 集群技术特点：

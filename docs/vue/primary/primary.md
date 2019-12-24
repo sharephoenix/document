@@ -126,6 +126,7 @@ watch: 监听属性变化；immedate=true 表明立即变化；deep=true 表明 
 
 ## router-view
 
+* 安装 router 组件： npm install vue-router
 * 用于界面路由跳转
 
  main.js 代码引入 router
@@ -190,3 +191,17 @@ export default new Router({
  ```
 
 * 其它传值方式自己写代码的时候学习吧
+
+## axios 网络请求
+
+* 安装依赖库: npm install axios --save
+* 网络请求-get
+
+```js
+import axios from 'axios'
+axios.get('/').then( res => {
+  window.console.log(res)
+}).catch(err => {
+  window.console.log(res)
+})
+```

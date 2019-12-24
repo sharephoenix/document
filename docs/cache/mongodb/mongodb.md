@@ -381,6 +381,12 @@ $geoNear | 输出接近某一地理位置的有序文档。| --
 db.col.aggregate([{$match:{"age":{$gt:12}}}]).pretty()
 ```
 
+### 查询数量
+
+```mongo
+db.module2.find().count()
+```
+
 ## 通道(注意： 有待写更多的 demo)
 
 管道在Unix和Linux中一般用于将当前命令的输出结果作为下一个命令的参数。
