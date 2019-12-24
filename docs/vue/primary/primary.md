@@ -209,3 +209,46 @@ axios.get('/').then( res => {
   window.console.log(res)
 })
 ```
+
+* axios 请求其它信息设置
+
+```js
+import axios from 'axios'
+
+/// 设置默认请求头
+axios.defaults.headers.common["token"] = 'token';
+/// 设置默认超时时间
+axios.defaults.timeout =  6000;
+
+/// 这里可以设置公共头部
+axios.interceptors.request.use(function (config) {
+  window.console.log('-------99',config)
+  let token = ''
+  if(localStorage.getItem('admin_info') == null){
+    return config
+  }else{
+    token = JSON.parse(localStorage.getItem('admin_info')).token
+  }
+  if(config.data == '' || config.data == null || config.data ==undefined){
+    if (token) {
+      config.params['token'] = token
+    }
+    return config
+  }else{
+    if (token) {
+      config.data['token'] = token
+    }
+    return config
+  }
+
+}, function (error) {
+
+  return Promise.reject(error)
+})
+
+/// 拦截器，处理返回数据
+axios.interceptors.response.use((res) => {
+  window.console.log('raw', res)
+  return JSON.stringify({name: 'alex', age: 12})
+})
+```
