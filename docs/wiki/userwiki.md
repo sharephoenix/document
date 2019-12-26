@@ -13,9 +13,38 @@ type UserModel struct {
 }
 ```
 
+## 手机注册
+
+### 接口地址-注册-Success
+
+> POST /register
+
+### Headers
+
+> {Version: '1.0.1'}
+### 请求参数
+
+> {"mobile": ""}
+
+### 响应体
+
+```json
+{
+ "code": 0,
+ "data": {
+  "nickName": "",
+  "mobile":"",
+  "email":"",
+  "age":12,
+  "address":"",
+  "avatar":""
+ }
+}
+```
+
 ## 手机登录
 
-### 接口地址-login
+### 接口地址-登录-Success
 
 > POST /login
 
@@ -41,7 +70,7 @@ type UserModel struct {
 
 ## 发送验证码
 
-### 接口地址
+### 接口地址-发送接口-Success
 
 > POST /sendCode
 
@@ -69,6 +98,34 @@ type UserModel struct {
 ### 请求体
 
 > {"mobile":""}
+
+### 响应体
+
+```json
+{
+	"code": 0,
+	"data": {
+   "nickName": "",
+   "mobile":"",
+   "email":"",
+   "age":12,
+   "address":"",
+   "avatar":""
+  }
+}
+```
+
+## 获取当前用户信息-Success
+
+>POST /logininfo
+
+### Headers
+> {Authorization: 'jwt'} 
+> {Token: '用户登录 mobile'}
+
+### 请求体
+
+> 
 
 ### 响应体
 
