@@ -13,7 +13,9 @@
 ## 环境安装
 
 1. 安装 nodejs
-   [官网链接](https://nodejs.org/en/)
+  * [官网链接](https://nodejs.org/en/)
+  * mac 官方直接下载会自动安装 npm
+  * 安装vue脚手架： npm install -g @vue/cli
 
    ```brew
    brew install nodejs
@@ -25,7 +27,7 @@
 3. 安装 vue
 
   ```action
-  npm install vue-cli -g
+  npm install -g @vue/cli
   ```
 
 4. 创建 vue hellword 工程
