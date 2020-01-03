@@ -4,10 +4,17 @@
 
 * 有一定的前端编程基础，不会 dart 语言无所谓的。
 * 使用 vscode 开发; 相关插件(Flutter, Awesome Flutter Snippets, flutter-stylizer, Dart, Dart-import)。
+* 安装 flutter [安装连接](https://flutterchina.club/get-started/install/)
+* 我的 Demo [Demo](https://github.com/sharephoenix/project-flutter/tree/master/my_app)
+
+## 相关命令
+
+* flutter run; 运行启动 flutter 工程，也可以直接点击 vscode 的调试按钮。
+* r/R; 代码更新后输入，更新当前界面。
 
 ## 基本组件
 
-1. Container
+1. Container {类比 div}
 2. ListView
 3. GridView
 4. RowWidget - Row(children: <Widget>[]) {Expanded: 灵活布局}
