@@ -71,6 +71,10 @@ module.exports = {
         link: '/weex/weex'
       },
       { 
+        text: 'flutter',
+        link: '/flutter/primary/primary'
+      },
+      { 
         text: '集群',
         link: '/cluster/cluster'
       },
@@ -121,6 +125,9 @@ module.exports = {
       '/wiki/userwiki': [
         'userwiki',
         'encryption'
+      ],
+      '/flutter/primary/primary': [
+        'primary'
       ],
       '/wiki/encryption': [
         'userwiki',
