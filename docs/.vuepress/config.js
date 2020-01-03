@@ -75,6 +75,10 @@ module.exports = {
         link: '/flutter/primary/primary'
       },
       { 
+        text: 'docker',
+        link: '/docker/primary/primary'
+      },
+      { 
         text: '集群',
         link: '/cluster/cluster'
       },
@@ -125,6 +129,9 @@ module.exports = {
       '/wiki/userwiki': [
         'userwiki',
         'encryption'
+      ],
+      '/docker/primary/primary': [
+        'primary'
       ],
       '/flutter/primary/primary': [
         'primary'
