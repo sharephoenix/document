@@ -56,3 +56,11 @@
 其实我认为分布式/微服务/SOA这三个概念是差不多的，了解了其中的一个，然后将自己的理解往上面套就好了。没必要细分每个的具体概念~~
 
 [友情链接](https://www.jianshu.com/p/d4fb16fafc2e)
+
+## go jenkins docker k8s 构建过程
+
+1. jenkins 拉去远端代码
+2. jenkins 构建执行文件
+3. jenkins 创建镜像并推向远端
+4. jenkins 调用 k8s api
+5. k8s 拉去远端镜像并运行到集群中
