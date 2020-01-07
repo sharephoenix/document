@@ -198,6 +198,26 @@ export default new Router({
 
 * 其它传值方式自己写代码的时候学习吧
 
+## vue 跨域问题
+
+1. server 端解决跨域问题：
+
+```go
+Access-Control-Allow-Origin: "*"
+```
+
+2. vue axios 设置域名
+
+```js
+import axios from 'axios';
+const service = axios.create({
+    // process.env.NODE_ENV === 'development' 来判断是否开发环境
+    // easy-mock服务挂了，暂时不使用了
+    baseURL: 'http://localhost:9090',//'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
+    timeout: 5000
+});
+```
+
 ## axios 网络请求
 
 * 安装依赖库: npm install axios --save
