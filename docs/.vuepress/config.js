@@ -74,7 +74,7 @@ module.exports = {
             items: [
               {
                 text: 'k8s',
-                link: 'kubernetes/kubernetes'
+                link: '/kubernetes/kubernetes'
               },
               { 
                 text: 'docker',
