@@ -115,7 +115,7 @@ module.exports = {
       },
       {
         text: 'nginx',
-        link: 'nginx/nginx'
+        link: '/nginx/nginx'
       },
       { 
         text: '服务器',
@@ -158,12 +158,12 @@ module.exports = {
         'userwiki',
         'encryption'
       ],
-      'kubernetes/kubernetes': [
+      '/kubernetes/kubernetes': [
         'kubernetes',
         'kubernetesdoc'
       ],
-      'nginx/nginx': [
-        'nginx/nginx'
+      '/nginx/nginx': [
+        'nginx'
       ],
       '/docker/primary/primary': [
         'primary'
