@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zc-service
+spec:
+  selector:
+    app: zc-container
+  type: NodePort
+  ports:
+  - name: http
+    port: 8080
+    nodePort: 30009
+    targetPort: 80
+    protocol: TCP
+    
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zc-deployment
+  labels:
+    app: zc-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zc-container
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: zc-container
+    spec:
+      containers:
+      - name: zc-container
+        image: nginx
+        ports:
+        - containerPort: 80
+
+  

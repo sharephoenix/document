@@ -1,5 +1,13 @@
 # 部署
 
+## 关键字说明
+
+* Pod是最小的，管理，创建，计划的最小单元。pod：由 pause， container1, constainer2... 组成
+* deployment控制器管理的是ReplicaSet，而不是pod。保证Pod的数量和健康。
+* service：service是一个抽象概念，定义了一个服务的多个pod逻辑合集和访问pod的策略，一般把service称为微服务
+* kube-proxy：k8s群集中的每个节点都运行一个kube-proxy的组件，kube-proxy其实是一个代理层负责实现service. 即：OverLay 网络
+[相关链接](https://www.cnblogs.com/37yan/p/8984731.html)
+
 ## 配置说明
 * metadata: 标记当前服务的名称和标签
 * spec 中的 selector 向下选择 metadata 中的名称和标签
@@ -190,6 +198,7 @@ spec:
   * 三种模式： userspace，iptables
     * userspace 用户控件的代理模式
 ![net](/docs/assets/k8s-net-agent-0.png)
+[OverlayNetwork](https://www.cnblogs.com/junneyang/p/6186754.html)
 
 ## apiServer 调用过程 （waiting）
 
