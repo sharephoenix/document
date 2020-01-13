@@ -15,88 +15,124 @@ module.exports = {
         text: '后台',
         items: [
           {
-            text: 'golang',
-            link: '/peddle_self/dashboard/golang'
+            text: '语言',
+            items: [
+              {
+                text: 'golang',
+                link: '/peddle_self/dashboard/golang'
+              },
+              {
+                text: 'golangstudy',
+                link: '/golang/learning'
+              }
+            ]
           },
           {
-            text: 'redis',
-            link: '/peddle_self/dashboard/redis'
+            text: '缓存',
+            items: [
+              {
+                text: 'redis',
+                link: '/peddle_self/dashboard/redis'
+              },
+              {
+                text: 'Redis',
+                link: '/cache/redis/redis'
+              },
+              {
+                text: 'LevelDB',
+                link: '/cache/redis/leveldb'
+              },
+              {
+                text: 'RocksDB',
+                link: '/cache/redis/rocksdb'
+              }
+            ]
           },
           {
-            text: 'mogodb',
-            link: '/peddle_self/dashboard/mogodb'
+            text: '数据库',
+            items: [
+              {
+                text: 'mogodb',
+                link: '/peddle_self/dashboard/mogodb'
+              },
+              {
+                text: 'mysql',
+                link: '/peddle_self/dashboard/database'
+              },
+              {
+                text: 'MongoDB',
+                link: '/cache/mongodb/mongodb'
+              },
+              { 
+                text: '数据库表',
+                link: '/peddle_self/production/document'
+              },
+            ]
           },
           {
-            text: 'mysql',
-            link: '/peddle_self/dashboard/database'
+            text: '运维',
+            items: [
+              {
+                text: 'k8s',
+                link: 'kubernetes/kubernetes'
+              },
+              { 
+                text: 'docker',
+                link: '/docker/primary/primary'
+              },
+              { 
+                text: '集群',
+                link: '/cluster/cluster'
+              },
+            ]
           },
           {
-            text: 'web',
-            link: '/peddle_self/dashboard/web'
+            text: '前端',
+            items: [
+              {
+                text: 'vue入门',
+                link: '/vue/primary/primary'
+              },
+              {
+                text: 'web',
+                link: '/peddle_self/dashboard/web'
+              },
+              { 
+                text: 'weex',
+                link: '/weex/weex'
+              },
+              {
+                text: 'webpack',
+                link: '/webpack/learning'
+              },
+            ]
           }
         ] 
-      },
-      {
-        text: 'mogodb',
-        items: [
-          {
-            text: 'MongoDB',
-            link: '/cache/mongodb/mongodb'
-          }
-        ]
-      },
-      {
-        text: 'redis',
-        items: [
-          {
-            text: 'Redis',
-            link: '/cache/redis/redis'
-          },
-          {
-            text: 'LevelDB',
-            link: '/cache/redis/leveldb'
-          },
-          {
-            text: 'RocksDB',
-            link: '/cache/redis/rocksdb'
-          }
-        ]
-      },
-      { 
-        text: '数据库表',
-        link: '/peddle_self/production/document'
-      },
-      { 
-        text: 'weex',
-        link: '/weex/weex'
       },
       { 
         text: 'flutter',
         link: '/flutter/primary/primary'
       },
-      { 
-        text: 'docker',
-        link: '/docker/primary/primary'
-      },
-      { 
-        text: '集群',
-        link: '/cluster/cluster'
+      {
+        text: 'nginx',
+        link: 'nginx/nginx'
       },
       { 
         text: '服务器',
         link: '/server/server'
-      },
-      {
-        text: 'vue入门',
-        link: '/vue/primary/primary'
       },
       { 
         text: '算法',
         link: '/arithmetic/home'
       },
       { 
-        text: 'j2objc',
-        link: '/javaoc/javaoc'
+        text: '移动端',
+        items: [
+          { 
+            text: 'j2objc',
+            link: '/javaoc/javaoc'
+          },
+        ]
       },
       {
         text: 'issue',
@@ -115,20 +151,19 @@ module.exports = {
           }
         ]
       },
-      {
-        text: 'golang',
-        link: '/golang/learning'
-      },
-      {
-        text: 'webpack',
-        link: '/webpack/learning'
-      }
     ],
     sidebar: 'none',
     sidebar: {
       '/wiki/userwiki': [
         'userwiki',
         'encryption'
+      ],
+      'kubernetes/kubernetes': [
+        'kubernetes',
+        'kubernetesdoc'
+      ],
+      'nginx/nginx': [
+        'nginx/nginx'
       ],
       '/docker/primary/primary': [
         'primary'
