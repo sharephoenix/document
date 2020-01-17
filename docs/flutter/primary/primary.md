@@ -11,6 +11,33 @@
 
 * flutter run; 运行启动 flutter 工程，也可以直接点击 vscode 的调试按钮。
 * r/R; 代码更新后输入，更新当前界面。
+* flutter pub global activate encrypt 拉取三方库信息
+```dart
+➜ flutter pub global activate encrypt
+Resolving dependencies...
++ args 1.5.2
++ asn1lib 0.5.15 (0.6.0 available)
++ charcode 1.1.2
++ clock 1.0.1
++ collection 1.14.12
++ convert 2.1.1
++ crypto 2.1.4
++ encrypt 4.0.0
++ meta 1.1.8
++ pointycastle 1.0.2
++ typed_data 1.1.6
+```
+* pubspec.yaml 中填写配置信息
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  encrypt: ^4.0.0
+```
+* 拉去资源
+```dart
+flutter pub get
+```
 
 ## 基本组件
 

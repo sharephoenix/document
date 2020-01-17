@@ -3,6 +3,15 @@
 ## 关于 内存重排
 [内存重排链接](https://mp.weixin.qq.com/s/jbGBBvMFHUKWBMnC4p7Rww)
 
+## mac go build
+```golang
+go build -ldflags "-w" user.go
+```
+## mac 交叉编译
+[交叉编译](https://my.oschina.net/u/3305368/blog/1853733)
+```golang
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build user.go
+```
 ## 工程结构
 1. model 表的查询，每张表都有一个文件
 2. tojson 读取数据库中的数据，转化为 json 数据
