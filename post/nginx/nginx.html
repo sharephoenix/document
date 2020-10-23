@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ngix 学习配置 | Touch</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/assets/css/0.styles.eee1a6a2.css" as="style"><link rel="preload" href="/assets/js/app.e2f18c7b.js" as="script"><link rel="preload" href="/assets/js/2.36f883b6.js" as="script"><link rel="preload" href="/assets/js/32.976920bd.js" as="script"><link rel="prefetch" href="/assets/js/10.182fe809.js"><link rel="prefetch" href="/assets/js/11.27e382f7.js"><link rel="prefetch" href="/assets/js/12.9692c21a.js"><link rel="prefetch" href="/assets/js/13.0fae6a67.js"><link rel="prefetch" href="/assets/js/14.d601657e.js"><link rel="prefetch" href="/assets/js/15.88307b73.js"><link rel="prefetch" href="/assets/js/16.a017389e.js"><link rel="prefetch" href="/assets/js/17.3760dfc3.js"><link rel="prefetch" href="/assets/js/18.91972c09.js"><link rel="prefetch" href="/assets/js/19.341ccf35.js"><link rel="prefetch" href="/assets/js/20.65f0c551.js"><link rel="prefetch" href="/assets/js/21.f79672cf.js"><link rel="prefetch" href="/assets/js/22.8df93da2.js"><link rel="prefetch" href="/assets/js/23.6806d2f2.js"><link rel="prefetch" href="/assets/js/24.6b247a89.js"><link rel="prefetch" href="/assets/js/25.3c4cd483.js"><link rel="prefetch" href="/assets/js/26.dd73f3fd.js"><link rel="prefetch" href="/assets/js/27.861c2de8.js"><link rel="prefetch" href="/assets/js/28.769d5d30.js"><link rel="prefetch" href="/assets/js/29.f7554058.js"><link rel="prefetch" href="/assets/js/3.c569bb4c.js"><link rel="prefetch" href="/assets/js/30.34ae229a.js"><link rel="prefetch" href="/assets/js/31.e76ad7f7.js"><link rel="prefetch" href="/assets/js/33.93e15542.js"><link rel="prefetch" href="/assets/js/34.7e48b58f.js"><link rel="prefetch" href="/assets/js/35.c6df0119.js"><link rel="prefetch" href="/assets/js/36.567bfaf3.js"><link rel="prefetch" href="/assets/js/37.ea3654d3.js"><link rel="prefetch" href="/assets/js/38.344fba88.js"><link rel="prefetch" href="/assets/js/39.6ff6f1d9.js"><link rel="prefetch" href="/assets/js/4.3f2e0bf3.js"><link rel="prefetch" href="/assets/js/40.cfef3ca5.js"><link rel="prefetch" href="/assets/js/41.bb1b868e.js"><link rel="prefetch" href="/assets/js/42.4a4b7421.js"><link rel="prefetch" href="/assets/js/43.427f6670.js"><link rel="prefetch" href="/assets/js/44.a2199064.js"><link rel="prefetch" href="/assets/js/45.1d200a97.js"><link rel="prefetch" href="/assets/js/46.d84adf1d.js"><link rel="prefetch" href="/assets/js/47.a82ea66d.js"><link rel="prefetch" href="/assets/js/48.55196b0a.js"><link rel="prefetch" href="/assets/js/5.c34f59ee.js"><link rel="prefetch" href="/assets/js/6.65cf63cf.js"><link rel="prefetch" href="/assets/js/7.41b77bae.js"><link rel="prefetch" href="/assets/js/8.beb1d7e7.js"><link rel="prefetch" href="/assets/js/9.ff68f8d3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eee1a6a2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Touch</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><span class="title">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-subitem"><a href="/golang/learning.html" class="nav-link">
+  golangstudy
+</a></li></ul></li><li class="dropdown-item"><h4>
+          缓存
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/redis.html" class="nav-link">
+  redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/redis.html" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/leveldb.html" class="nav-link">
+  LevelDB
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/rocksdb.html" class="nav-link">
+  RocksDB
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/mogodb.html" class="nav-link">
+  mogodb
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/database.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-subitem"><a href="/cache/mongodb/mongodb.html" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/production/document.html" class="nav-link">
+  数据库表
+</a></li></ul></li><li class="dropdown-item"><h4>
+          运维
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/kubernetes/kubernetes.html" class="nav-link">
+  k8s
+</a></li><li class="dropdown-subitem"><a href="/docker/primary/primary.html" class="nav-link">
+  docker
+</a></li><li class="dropdown-subitem"><a href="/cluster/cluster.html" class="nav-link">
+  集群
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/primary/primary.html" class="nav-link">
+  vue入门
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/web.html" class="nav-link">
+  web
+</a></li><li class="dropdown-subitem"><a href="/weex/weex.html" class="nav-link">
+  weex
+</a></li><li class="dropdown-subitem"><a href="/webpack/learning.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/flutter/primary/primary.html" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/nginx/nginx.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  nginx
+</a></div><div class="nav-item"><a href="/server/server.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/arithmetic/home.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="移动端" class="dropdown-title"><span class="title">移动端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javaoc/javaoc.html" class="nav-link">
+  j2objc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="issue" class="dropdown-title"><span class="title">issue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/issue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/issue/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/issue/mysql.html" class="nav-link">
+  mysql
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><span class="title">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-subitem"><a href="/golang/learning.html" class="nav-link">
+  golangstudy
+</a></li></ul></li><li class="dropdown-item"><h4>
+          缓存
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/redis.html" class="nav-link">
+  redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/redis.html" class="nav-link">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/leveldb.html" class="nav-link">
+  LevelDB
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/rocksdb.html" class="nav-link">
+  RocksDB
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/mogodb.html" class="nav-link">
+  mogodb
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/database.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-subitem"><a href="/cache/mongodb/mongodb.html" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/production/document.html" class="nav-link">
+  数据库表
+</a></li></ul></li><li class="dropdown-item"><h4>
+          运维
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/kubernetes/kubernetes.html" class="nav-link">
+  k8s
+</a></li><li class="dropdown-subitem"><a href="/docker/primary/primary.html" class="nav-link">
+  docker
+</a></li><li class="dropdown-subitem"><a href="/cluster/cluster.html" class="nav-link">
+  集群
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/primary/primary.html" class="nav-link">
+  vue入门
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/web.html" class="nav-link">
+  web
+</a></li><li class="dropdown-subitem"><a href="/weex/weex.html" class="nav-link">
+  weex
+</a></li><li class="dropdown-subitem"><a href="/webpack/learning.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/flutter/primary/primary.html" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/nginx/nginx.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  nginx
+</a></div><div class="nav-item"><a href="/server/server.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/arithmetic/home.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="移动端" class="dropdown-title"><span class="title">移动端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javaoc/javaoc.html" class="nav-link">
+  j2objc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="issue" class="dropdown-title"><span class="title">issue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/issue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/issue/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/issue/mysql.html" class="nav-link">
+  mysql
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/nginx/nginx.html" aria-current="page" class="active sidebar-link">ngix 学习配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/nginx/nginx.html#nginx-配置多个-网站" class="sidebar-link">nginx 配置多个 网站</a></li><li class="sidebar-sub-header"><a href="/nginx/nginx.html#proxy-pass" class="sidebar-link">proxy_pass</a></li><li class="sidebar-sub-header"><a href="/nginx/nginx.html#ngnix-跨域配置" class="sidebar-link">ngnix 跨域配置</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ngix-学习配置"><a href="#ngix-学习配置" aria-hidden="true" class="header-anchor">#</a> ngix 学习配置</h1> <h2 id="nginx-配置多个-网站"><a href="#nginx-配置多个-网站" aria-hidden="true" class="header-anchor">#</a> nginx 配置多个 网站</h2> <ul><li>这样配置可能找不到资源文件</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+
+    <span class="token comment">#charset koi8-r;</span>
+    <span class="token comment">#access_log  /var/log/nginx/host.access.log  main;</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span>a <span class="token punctuation">{</span>
+        <span class="token keyword">alias</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token operator">/</span>a<span class="token punctuation">;</span>
+        <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span>b <span class="token punctuation">{</span>
+        <span class="token keyword">alias</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token operator">/</span>b<span class="token punctuation">;</span>
+        <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="proxy-pass"><a href="#proxy-pass" aria-hidden="true" class="header-anchor">#</a> proxy_pass</h2> <ul><li>服务器反向代理配置, 反向代理可以找到图片</li></ul> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span>c <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">88</span><span class="token operator">/</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>    <span class="token number">88</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span> localhost<span class="token punctuation">;</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token operator">/</span>c<span class="token punctuation">;</span>
+        <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="ngnix-跨域配置"><a href="#ngnix-跨域配置" aria-hidden="true" class="header-anchor">#</a> ngnix 跨域配置</h2> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Origin <span class="token operator">*</span><span class="token punctuation">;</span>
+    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Methods <span class="token string">'GET, POST, OPTIONS'</span><span class="token punctuation">;</span>
+    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Headers <span class="token string">'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'OPTIONS'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">204</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+</code></pre></div><ol><li><p>Access-Control-Allow-Origin
+服务器默认是不被允许跨域的。给Nginx服务器配置<code>Access-Control-Allow-Origin *</code>后，表示服务器可以接受所有的请求源（Origin）,即接受所有跨域的请求。</p></li> <li><p>Access-Control-Allow-Headers 是为了防止出现以下错误：
+Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.
+这个错误表示当前请求Content-Type的值不被支持。其实是我们发起了&quot;application/json&quot;的类型请求导致的。这里涉及到一个概念：预检请求（preflight request）,请看下面&quot;预检请求&quot;的介绍。</p></li> <li><p>Access-Control-Allow-Methods 是为了防止出现以下错误：
+Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.</p></li> <li><p>给OPTIONS 添加 204的返回，是为了处理在发送POST请求时Nginx依然拒绝访问的错误
+发送&quot;预检请求&quot;时，需要用到方法 OPTIONS ,所以服务器需要允许该方法。</p></li> <li><p>预检请求（preflight request）</p> <p>其实上面的配置涉及到了一个W3C标准：CROS,全称是跨域资源共享 (Cross-origin resource sharing)，它的提出就是为了解决跨域请求的。</p> <p>跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（包括 Cookies 和 HTTP 认证相关数据）。
+其实Content-Type字段的类型为application/json的请求就是上面所说的搭配某些 MIME 类型的 POST 请求,CORS规定，Content-Type不属于以下MIME类型的，都属于预检请求：</p> <p>application/x-www-form-urlencoded
+multipart/form-data
+text/plain
+所以 application/json的请求 会在正式通信之前，增加一次&quot;预检&quot;请求，这次&quot;预检&quot;请求会带上头部信息 Access-Control-Request-Headers: Content-Type：</p> <p>OPTIONS /api/test HTTP/1.1
+Origin: http://foo.example
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type
+... 省略了一些
+服务器回应时，返回的头部信息如果不包含Access-Control-Allow-Headers: Content-Type则表示不接受非默认的的Content-Type。即出现以下错误：</p> <p>Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.</p></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e2f18c7b.js" defer></script><script src="/assets/js/2.36f883b6.js" defer></script><script src="/assets/js/32.976920bd.js" defer></script>
+  </body>
+</html>

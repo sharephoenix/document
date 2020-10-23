@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redis 入门学习 | Touch</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/assets/css/0.styles.eee1a6a2.css" as="style"><link rel="preload" href="/assets/js/app.e2f18c7b.js" as="script"><link rel="preload" href="/assets/js/2.36f883b6.js" as="script"><link rel="preload" href="/assets/js/19.341ccf35.js" as="script"><link rel="prefetch" href="/assets/js/10.182fe809.js"><link rel="prefetch" href="/assets/js/11.27e382f7.js"><link rel="prefetch" href="/assets/js/12.9692c21a.js"><link rel="prefetch" href="/assets/js/13.0fae6a67.js"><link rel="prefetch" href="/assets/js/14.d601657e.js"><link rel="prefetch" href="/assets/js/15.88307b73.js"><link rel="prefetch" href="/assets/js/16.a017389e.js"><link rel="prefetch" href="/assets/js/17.3760dfc3.js"><link rel="prefetch" href="/assets/js/18.91972c09.js"><link rel="prefetch" href="/assets/js/20.65f0c551.js"><link rel="prefetch" href="/assets/js/21.f79672cf.js"><link rel="prefetch" href="/assets/js/22.8df93da2.js"><link rel="prefetch" href="/assets/js/23.6806d2f2.js"><link rel="prefetch" href="/assets/js/24.6b247a89.js"><link rel="prefetch" href="/assets/js/25.3c4cd483.js"><link rel="prefetch" href="/assets/js/26.dd73f3fd.js"><link rel="prefetch" href="/assets/js/27.861c2de8.js"><link rel="prefetch" href="/assets/js/28.769d5d30.js"><link rel="prefetch" href="/assets/js/29.f7554058.js"><link rel="prefetch" href="/assets/js/3.c569bb4c.js"><link rel="prefetch" href="/assets/js/30.34ae229a.js"><link rel="prefetch" href="/assets/js/31.e76ad7f7.js"><link rel="prefetch" href="/assets/js/32.976920bd.js"><link rel="prefetch" href="/assets/js/33.93e15542.js"><link rel="prefetch" href="/assets/js/34.7e48b58f.js"><link rel="prefetch" href="/assets/js/35.c6df0119.js"><link rel="prefetch" href="/assets/js/36.567bfaf3.js"><link rel="prefetch" href="/assets/js/37.ea3654d3.js"><link rel="prefetch" href="/assets/js/38.344fba88.js"><link rel="prefetch" href="/assets/js/39.6ff6f1d9.js"><link rel="prefetch" href="/assets/js/4.3f2e0bf3.js"><link rel="prefetch" href="/assets/js/40.cfef3ca5.js"><link rel="prefetch" href="/assets/js/41.bb1b868e.js"><link rel="prefetch" href="/assets/js/42.4a4b7421.js"><link rel="prefetch" href="/assets/js/43.427f6670.js"><link rel="prefetch" href="/assets/js/44.a2199064.js"><link rel="prefetch" href="/assets/js/45.1d200a97.js"><link rel="prefetch" href="/assets/js/46.d84adf1d.js"><link rel="prefetch" href="/assets/js/47.a82ea66d.js"><link rel="prefetch" href="/assets/js/48.55196b0a.js"><link rel="prefetch" href="/assets/js/5.c34f59ee.js"><link rel="prefetch" href="/assets/js/6.65cf63cf.js"><link rel="prefetch" href="/assets/js/7.41b77bae.js"><link rel="prefetch" href="/assets/js/8.beb1d7e7.js"><link rel="prefetch" href="/assets/js/9.ff68f8d3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.eee1a6a2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Touch</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><span class="title">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-subitem"><a href="/golang/learning.html" class="nav-link">
+  golangstudy
+</a></li></ul></li><li class="dropdown-item"><h4>
+          缓存
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/redis.html" class="nav-link">
+  redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/redis.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/leveldb.html" class="nav-link">
+  LevelDB
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/rocksdb.html" class="nav-link">
+  RocksDB
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/mogodb.html" class="nav-link">
+  mogodb
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/database.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-subitem"><a href="/cache/mongodb/mongodb.html" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/production/document.html" class="nav-link">
+  数据库表
+</a></li></ul></li><li class="dropdown-item"><h4>
+          运维
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/kubernetes/kubernetes.html" class="nav-link">
+  k8s
+</a></li><li class="dropdown-subitem"><a href="/docker/primary/primary.html" class="nav-link">
+  docker
+</a></li><li class="dropdown-subitem"><a href="/cluster/cluster.html" class="nav-link">
+  集群
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/primary/primary.html" class="nav-link">
+  vue入门
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/web.html" class="nav-link">
+  web
+</a></li><li class="dropdown-subitem"><a href="/weex/weex.html" class="nav-link">
+  weex
+</a></li><li class="dropdown-subitem"><a href="/webpack/learning.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/flutter/primary/primary.html" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/nginx/nginx.html" class="nav-link">
+  nginx
+</a></div><div class="nav-item"><a href="/server/server.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/arithmetic/home.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="移动端" class="dropdown-title"><span class="title">移动端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javaoc/javaoc.html" class="nav-link">
+  j2objc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="issue" class="dropdown-title"><span class="title">issue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/issue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/issue/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/issue/mysql.html" class="nav-link">
+  mysql
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后台" class="dropdown-title"><span class="title">后台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-subitem"><a href="/golang/learning.html" class="nav-link">
+  golangstudy
+</a></li></ul></li><li class="dropdown-item"><h4>
+          缓存
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/redis.html" class="nav-link">
+  redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/redis.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Redis
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/leveldb.html" class="nav-link">
+  LevelDB
+</a></li><li class="dropdown-subitem"><a href="/cache/redis/rocksdb.html" class="nav-link">
+  RocksDB
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/peddle_self/dashboard/mogodb.html" class="nav-link">
+  mogodb
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/database.html" class="nav-link">
+  mysql
+</a></li><li class="dropdown-subitem"><a href="/cache/mongodb/mongodb.html" class="nav-link">
+  MongoDB
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/production/document.html" class="nav-link">
+  数据库表
+</a></li></ul></li><li class="dropdown-item"><h4>
+          运维
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/kubernetes/kubernetes.html" class="nav-link">
+  k8s
+</a></li><li class="dropdown-subitem"><a href="/docker/primary/primary.html" class="nav-link">
+  docker
+</a></li><li class="dropdown-subitem"><a href="/cluster/cluster.html" class="nav-link">
+  集群
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/vue/primary/primary.html" class="nav-link">
+  vue入门
+</a></li><li class="dropdown-subitem"><a href="/peddle_self/dashboard/web.html" class="nav-link">
+  web
+</a></li><li class="dropdown-subitem"><a href="/weex/weex.html" class="nav-link">
+  weex
+</a></li><li class="dropdown-subitem"><a href="/webpack/learning.html" class="nav-link">
+  webpack
+</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/flutter/primary/primary.html" class="nav-link">
+  flutter
+</a></div><div class="nav-item"><a href="/nginx/nginx.html" class="nav-link">
+  nginx
+</a></div><div class="nav-item"><a href="/server/server.html" class="nav-link">
+  服务器
+</a></div><div class="nav-item"><a href="/arithmetic/home.html" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="移动端" class="dropdown-title"><span class="title">移动端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javaoc/javaoc.html" class="nav-link">
+  j2objc
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="issue" class="dropdown-title"><span class="title">issue</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/issue/vue.html" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/issue/golang.html" class="nav-link">
+  golang
+</a></li><li class="dropdown-item"><!----> <a href="/issue/mysql.html" class="nav-link">
+  mysql
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/cache/redis/redis.html" aria-current="page" class="active sidebar-link">Redis 入门学习</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#前提" class="sidebar-link">前提</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#支持哪些数据结构" class="sidebar-link">支持哪些数据结构</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#字符串（strings）" class="sidebar-link">字符串（strings）</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#redis-lists" class="sidebar-link">Redis Lists</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#list-阻塞操作" class="sidebar-link">list 阻塞操作</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#redis-hashes" class="sidebar-link">Redis Hashes</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#set" class="sidebar-link">set</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#时间线" class="sidebar-link">时间线</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#pfadd" class="sidebar-link">pfadd</a></li><li class="sidebar-sub-header"><a href="/cache/redis/redis.html#pfcount" class="sidebar-link">pfcount</a></li></ul></li><li><a href="/cache/redis/rocksdb.html" class="sidebar-link">项目</a></li><li><a href="/cache/redis/leveldb.html" class="sidebar-link">LevelDB</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redis-入门学习"><a href="#redis-入门学习" aria-hidden="true" class="header-anchor">#</a> Redis 入门学习</h1> <p><a href="http://redis.cn/" target="_blank" rel="noopener noreferrer">官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="前提"><a href="#前提" aria-hidden="true" class="header-anchor">#</a> 前提</h2> <ul><li>安装 Redis</li> <li>redis-cli 进入 redis 操作界面</li></ul> <h2 id="支持哪些数据结构"><a href="#支持哪些数据结构" aria-hidden="true" class="header-anchor">#</a> 支持哪些数据结构</h2> <p>字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。 Redis 内置了 复制（replication），LUA脚本（Lua scripting）， LRU驱动事件（LRU eviction），事务（transactions） 和不同级别的 磁盘持久化（persistence）， 并通过 Redis哨兵（Sentinel）和自动 分区（Cluster）提供高可用性（high availability)</p> <h2 id="字符串（strings）"><a href="#字符串（strings）" aria-hidden="true" class="header-anchor">#</a> 字符串（strings）</h2> <ul><li>简单操作</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; set name alex
+OK
+127.0.0.1:6379&gt; get name
+&quot;alex&quot;
+127.0.0.1:6379&gt; exists name
+(integer) 1
+127.0.0.1:6379&gt; del name
+(integer) 1
+127.0.0.1:6379&gt; get name
+(nil)
+</code></pre></div><ul><li>原子递增</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>  127.0.0.1:6379&gt; set counter 1
+OK
+127.0.0.1:6379&gt; get counter
+&quot;1&quot;
+127.0.0.1:6379&gt; incr counter
+(integer) 2
+127.0.0.1:6379&gt; get counter
+&quot;2&quot;
+127.0.0.1:6379&gt;
+</code></pre></div><ul><li>原子递增 10</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; incrby counter 10
+(integer) 12
+127.0.0.1:6379&gt; get counter
+&quot;12&quot;
+127.0.0.1:6379&gt; 
+</code></pre></div><ul><li>mset mget 多次赋值，多次取值</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; mset a 1 b 2 c 3
+OK
+127.0.0.1:6379&gt; mget a b c
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+127.0.0.1:6379&gt;
+</code></pre></div><ul><li>获取存储值的类型</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; type a
+string
+127.0.0.1:6379&gt; incr a
+(integer) 2
+127.0.0.1:6379&gt; type a
+string
+127.0.0.1:6379&gt;
+</code></pre></div><ul><li>expire 设置超时，单位：秒</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; set a 2
+OK
+127.0.0.1:6379&gt; expire a 3
+(integer) 1
+127.0.0.1:6379&gt; get a
+(nil)
+127.0.0.1:6379&gt;
+</code></pre></div><ul><li>expire 设置超时</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; set a 100 ex 5
+OK
+127.0.0.1:6379&gt; get a
+&quot;100&quot;
+127.0.0.1:6379&gt; get a
+(nil)
+127.0.0.1:6379&gt;
+</code></pre></div><h2 id="redis-lists"><a href="#redis-lists" aria-hidden="true" class="header-anchor">#</a> Redis Lists</h2> <p>要说清楚列表数据类型，最好先讲一点儿理论背景，在信息技术界List这个词常常被使用不当。例如”Python Lists”就名不副实（名为Linked Lists），但他们实际上是数组（同样的数据类型在Ruby中叫数组）</p> <p>一般意义上讲，列表就是有序元素的序列：10,20,1,2,3就是一个列表。但用数组实现的List和用Linked List实现的List，在属性方面大不相同。</p> <p>Redis lists基于Linked Lists实现。这意味着即使在一个list中有数百万个元素，在头部或尾部添加一个元素的操作，其时间复杂度也是常数级别的。用LPUSH 命令在十个元素的list头部添加新元素，和在千万元素list头部添加新元素的速度相同。</p> <p>那么，坏消息是什么？在数组实现的list中利用索引访问元素的速度极快，而同样的操作在linked list实现的list上没有那么快。</p> <p>Redis Lists用linked list实现的原因是：对于数据库系统来说，至关重要的特性是：能非常快的在很大的列表上添加元素。另一个重要因素是，正如你将要看到的：Redis lists能在常数时间取得常数长度。</p> <p>如果快速访问集合元素很重要，建议使用可排序集合(sorted sets)。可排序集合我们会随后介绍。</p> <ul><li>lpush rpush lrange 添加 获取 命令</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; rpush mylist a
+(integer) 1
+127.0.0.1:6379&gt; rpush mylist b
+(integer) 2
+127.0.0.1:6379&gt; lpush mylist first
+(integer) 3
+127.0.0.1:6379&gt; lrange mylist 0 -1
+1) &quot;first&quot;
+2) &quot;a&quot;
+3) &quot;b&quot;
+
+127.0.0.1:6379&gt; del mylist
+(integer) 1
+127.0.0.1:6379&gt; lrange mylist 0 -1
+(empty list or set)
+127.0.0.1:6379&gt; rpush mylist 1 2 3 4 5 &quot;foo bar&quot;
+127.0.0.1:6379&gt; lrange mylist 0 -1
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+6) &quot;foo bar&quot;
+</code></pre></div><ul><li>rpop lpop 取出 list 中的值</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; lpop mylist
+&quot;1&quot;
+127.0.0.1:6379&gt; rpop mylist
+&quot;foo bar&quot;
+127.0.0.1:6379&gt; lrange mylist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;5&quot;
+</code></pre></div><ul><li>获取 list 的长度</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; lrange mylist 0 -1
+1) &quot;2&quot;
+2) &quot;3&quot;
+3) &quot;4&quot;
+4) &quot;5&quot;
+127.0.0.1:6379&gt; llen mylist
+(integer) 4
+</code></pre></div><h2 id="list-阻塞操作"><a href="#list-阻塞操作" aria-hidden="true" class="header-anchor">#</a> list 阻塞操作</h2> <p>可以使用Redis来实现生产者和消费者模型，如使用LPUSH和RPOP来实现该功能。但会遇到这种情景：list是空，这时候消费者就需要轮询来获取数据，这样就会增加redis的访问压力、增加消费端的cpu时间，而很多访问都是无用的。为此redis提供了阻塞式访问 BRPOP 和 BLPOP 命令。 消费者可以在获取数据时指定如果数据不存在阻塞的时间，如果在时限内获得数据则立即返回，如果超时还没有数据则返回null, 0表示一直阻塞。
+同时redis还会为所有阻塞的消费者以先后顺序排队。
+如需了解详细信息请查看 RPOPLPUSH 和 BRPOPLPUSH。</p> <h2 id="redis-hashes"><a href="#redis-hashes" aria-hidden="true" class="header-anchor">#</a> Redis Hashes</h2> <p>值得注意的是，小的 hash 被用特殊方式编码，非常节约内存。</p> <ul><li>简单操作: hset hget hgetall hmget</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; hset myhash a 1 b 2 c 3
+(integer) 0
+127.0.0.1:6379&gt; hget myhash a
+&quot;1&quot;
+127.0.0.1:6379&gt; hgetall myhash
+1) &quot;a&quot;
+2) &quot;1&quot;
+3) &quot;b&quot;
+4) &quot;2&quot;
+5) &quot;c&quot;
+6) &quot;3&quot;
+127.0.0.1:6379&gt; hmget myhash a b
+1) &quot;1&quot;
+2) &quot;2&quot;
+</code></pre></div><ul><li>hincrby</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; hincrby myhash a 10
+(integer) 11
+127.0.0.1:6379&gt; hget myhash a
+&quot;11&quot;
+</code></pre></div><h2 id="set"><a href="#set" aria-hidden="true" class="header-anchor">#</a> set</h2> <p>Redis Set 是 String 的无序排列。SADD 指令把新的元素添加到 set 中。对 set 也可做一些其他的操作，比如测试一个给定的元素是否存在，对不同 set 取交集，并集或差，等等。</p> <ul><li>简单操作</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; sadd myset 1 2 34
+(integer) 3
+127.0.0.1:6379&gt; smembers myset
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;34&quot;
+</code></pre></div><ul><li>sismember 查看是否存在</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>27.0.0.1:6379&gt; smembers myset
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;34&quot;
+127.0.0.1:6379&gt; sismember myset 1
+(integer) 1
+127.0.0.1:6379&gt; sismember myset 34
+(integer) 1
+127.0.0.1:6379&gt; sismember myset 340
+(integer) 0
+</code></pre></div><ul><li>使用场景</li></ul> <p>Sets 适合用于表示对象间的关系。 例如，我们可以轻易使用 set 来表示标记。</p> <p>一个简单的建模方式是，对每一个希望标记的对象使用 set。这个 set 包含和对象相关联的标签的 ID。</p> <p>假设我们想要给新闻打上标签。 假设新闻 ID 1000 被打上了 1,2,5 和 77 四个标签，我们可以使用一个 set 把 tag ID 和新闻条目关联起来：</p> <div class="language-redis extra-class"><pre class="language-text"><code>&gt; sadd news:1000:tags 1 2 5 77
+(integer) 4
+</code></pre></div><p>或者</p> <div class="language-redis extra-class"><pre class="language-text"><code>&gt; sadd tag:1:news 1000
+(integer) 1
+&gt; sadd tag:2:news 1000
+(integer) 1
+&gt; sadd tag:5:news 1000
+(integer) 1
+&gt; sadd tag:77:news 1000
+(integer) 1
+</code></pre></div><ul><li>sinter 取交集</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; smembers myset
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;34&quot;
+127.0.0.1:6379&gt; sadd myset0 1 6 2 99
+(integer) 4
+127.0.0.1:6379&gt; sinter myset myset0
+1) &quot;1&quot;
+2) &quot;2&quot;
+</code></pre></div><ul><li>并集</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; sunionstore myset2 myset0 myset1
+(integer) 5
+127.0.0.1:6379&gt; smembers myset2
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+127.0.0.1:6379&gt; smembers myset0
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+127.0.0.1:6379&gt; smembers myset1
+1) &quot;3&quot;
+2) &quot;4&quot;
+3) &quot;5&quot;
+</code></pre></div><h2 id="时间线"><a href="#时间线" aria-hidden="true" class="header-anchor">#</a> 时间线</h2> <ul><li>简单使用</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zadd line0 0 &quot;0000&quot;
+(integer) 0
+127.0.0.1:6379&gt; zadd line0 3 &quot;33333&quot;
+(integer) 0
+127.0.0.1:6379&gt; zadd line0 4 &quot;44444&quot;
+(integer) 0
+127.0.0.1:6379&gt; zrange line0 0 -1
+1) &quot;0000&quot;
+2) &quot;33333&quot;
+3) &quot;44444&quot;
+</code></pre></div><ul><li>倒序获取</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zrevrange line0 0 -1
+1) &quot;44444&quot;
+2) &quot;33333&quot;
+3) &quot;0000&quot;
+</code></pre></div><ul><li>获取值的同时获取权重</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zrange line0 0 -1 withscores
+1) &quot;0000&quot;
+2) &quot;0&quot;
+3) &quot;33333&quot;
+4) &quot;3&quot;
+5) &quot;44444&quot;
+6) &quot;4&quot;
+</code></pre></div><ul><li>过滤 score 权重; -inf 3: score&lt;=3</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zrange line0 0 -1 withscores
+1) &quot;0000&quot;
+2) &quot;0&quot;
+3) &quot;33333&quot;
+4) &quot;3&quot;
+5) &quot;44444&quot;
+6) &quot;4&quot;
+127.0.0.1:6379&gt; zrangebyscore line0 -inf 3 withscores
+1) &quot;0000&quot;
+2) &quot;0&quot;
+3) &quot;33333&quot;
+4) &quot;3&quot;
+</code></pre></div><ul><li>移除 score [0, 3] 之间的数据; zremrangebyscore</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zremrangebyscore line0 0 3
+(integer) 2
+</code></pre></div><ul><li>获取权重 score</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zrank line0 111
+(integer) 0
+127.0.0.1:6379&gt; zrank line0 222
+(integer) 1
+127.0.0.1:6379&gt; zrange line0 0 -1 withscores
+1) &quot;111&quot;
+2) &quot;0&quot;
+3) &quot;222&quot;
+4) &quot;1&quot;
+</code></pre></div><ul><li>zadd 可以插入相同 scroe 的值</li></ul> <div class="language-redis extra-class"><pre class="language-text"><code>127.0.0.1:6379&gt; zadd line0 0 123
+(integer) 1
+127.0.0.1:6379&gt; zadd line0 0 456
+(integer) 1
+127.0.0.1:6379&gt; zrange line0 0 -1 withscores
+1) &quot;123&quot;
+2) &quot;0&quot;
+3) &quot;456&quot;
+4) &quot;0&quot;
+</code></pre></div><h2 id="pfadd"><a href="#pfadd" aria-hidden="true" class="header-anchor">#</a> pfadd</h2> <h2 id="pfcount"><a href="#pfcount" aria-hidden="true" class="header-anchor">#</a> pfcount</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/cache/redis/rocksdb.html">
+        项目
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e2f18c7b.js" defer></script><script src="/assets/js/2.36f883b6.js" defer></script><script src="/assets/js/19.341ccf35.js" defer></script>
+  </body>
+</html>

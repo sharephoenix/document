@@ -3,8 +3,11 @@ const basePath = 'post'
 module.exports = {
   title: 'Touch',
   description: 'Just playing around',
-  // dest: basePath,
-  base: `/blog/`,
+  dest: basePath,
+  // 发布到 github 使用
+  // base: `/blog/`,
+  // 发布到个人服务器使用
+  base: `/`,
   serviceWorker: true,
   evergreen: true,
   ga: 'UA-112738831-1',
